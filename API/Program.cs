@@ -4,11 +4,16 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<StoreContext>(option=>{
+
+builder.Services.AddDbContext<StoreContext>(option =>
+{
     option.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -19,11 +24,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(options =>
+{
+    options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+});
 
-app.UseAuthorization();
-app.UseAuthentication();
+// app.UseAuthorization();
+// app.UseAuthentication();
 app.MapControllers();
-
 
 app.Run();
 

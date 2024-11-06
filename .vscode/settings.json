@@ -1,1 +1,29 @@
-{}
+{
+  "csharpextensions.privateMemberPrefix": "_",
+  "csharpextensions.useThisForCtorAssignments": false,
+  "auto-close-tag.activationOnLanguage": [
+    "xml",
+    "php",
+    "blade",
+    "ejs",
+    "jinja",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "plaintext",
+    "markdown",
+    "vue",
+    "liquid",
+    "erb",
+    "lang-cfml",
+    "cfml",
+    "HTML (EEx)",
+    "HTML (Eex)",
+    "plist"
+  ],
+  "auto-close-tag.disableOnLanguage": [],
+  "auto-close-tag.fullMode": true,
+  "auto-close-tag.insertSpaceBeforeSelfClosingTag": true,
+  "auto-close-tag.SublimeText3Mode": true
+}

@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
           Spotless homes, happy hearts
         </strong>
         <button
-          className="size-5 w-32 h-16 border-[1px] border-white rounded-sm mt-12 
+          className="size-5 w-32 h-14 border-[1px] border-white rounded-sm mt-12 
         flex justify-center items-center text-white font-Assitant tracking-wide
         "
         >

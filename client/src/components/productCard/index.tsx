@@ -1,35 +1,22 @@
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CardActions,
-  Button,
-} from "@mui/material";
 import React from "react";
+import { Image } from "antd";
+
+import product1 from "../../../public/product/product1.jpg";
 
 export default function ProductCard() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <div className="w-full">
+      <figure className="flex flex-col cursor-pointer overflow-hidden">
+        <Image
+          className="w-full object-cover  overflow-hidden"
+          src={product1}
+          alt="perfume"
+        />
+        <span className="mt-3 mb-2 text-sm hover:underline">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, harum.
+        </span>
+        <span>&#x24; 9.99 USD</span>
+      </figure>
+    </div>
   );
 }

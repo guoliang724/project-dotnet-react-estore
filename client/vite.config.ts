@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import path from "path";
+import { resolve } from "path/posix";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -9,6 +9,11 @@ export default defineConfig({
     host: true,
     open: true,
   },
-
+  resolve: {
+    alias: [
+      { find: "@", replacement: resolve(__dirname, "./src") },
+      { find: "imgs", replacement: resolve(__dirname, "src", "imgs") },
+    ],
+  },
   plugins: [react()],
 });

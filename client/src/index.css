@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  overflow-y: scroll;
+}
+
 /* 
 1. tyography system
 - font size: 10/12/14/16/18/20/24/230/36/44/52/62/74/86/98

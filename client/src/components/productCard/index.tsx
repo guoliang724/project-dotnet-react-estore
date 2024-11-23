@@ -1,21 +1,32 @@
-import React from "react";
 import { Image } from "antd";
 
-import product1 from "../../../public/product/product1.jpg";
+export interface IProduct {
+  productName: string;
+  description: "string";
+  price: number;
+  pictureUrl: string;
+  brand: string;
+  type: string;
+  quantityInStock: number;
+}
 
-export default function ProductCard() {
+export default function ProductCard({
+  pictureUrl,
+  price,
+  type,
+  description,
+}: IProduct) {
   return (
     <div className="w-full">
       <figure className="flex flex-col cursor-pointer overflow-hidden">
         <Image
-          className="w-full object-cover  overflow-hidden"
-          src={product1}
-          alt="perfume"
+          className="w-full object-cover overflow-hidden"
+          src={pictureUrl}
+          alt={type}
         />
-        <span className="mt-3 mb-2 text-sm hover:underline">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, harum.
-        </span>
-        <span>&#x24; 9.99 USD</span>
+
+        <span className="mt-3 mb-2 text-sm hover:underline">{description}</span>
+        <span>From &#x24; {price.toFixed(2)} USD</span>
       </figure>
     </div>
   );

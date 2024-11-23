@@ -11,7 +11,7 @@ namespace API.Entities
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public long Price { get; set; }
+        public double Price { get; set; }
 
         public string PictureUrl { get; set; }
 

@@ -1,41 +1,53 @@
-import { useEffect, useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Header from "./layout/header";
-import Content from "./layout/content";
-import Hero from "./components/hero";
-import Announcementbar from "./layout/announcementbar";
-import WorkSection from "./components/work";
-import Testimonial from "./components/testmonial/indext";
-import FeaturedIn from "./components/featuredIn";
-import ProductList from "./components/productList";
-import Subscription from "./components/subscription/indext";
-import Footer from "./layout/footer";
+import Home from "./page/home";
+import AppLayout from "./layout/AppLayout";
+import Error from "./components/error/Index";
+import ProductList, {
+  loader as productListLoader,
+} from "./components/productList";
+import ProductDetail from "./components/productDetail";
+import Contact from "./page/contact";
+import News from "./page/news";
+import NotFound from "./components/notFound";
 
 function App() {
-  const [data, setData] = useState([]);
+  const router = createBrowserRouter([
+    {
+      element: <AppLayout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+          errorElement: <Error />,
+          loader: productListLoader,
+        },
+        {
+          path: "/products",
+          loader: productListLoader,
+          element: <ProductList />,
+        },
+        {
+          path: "/product/:id",
+          element: <ProductDetail />,
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
+        },
+        {
+          path: "/news",
+          element: <News />,
+        },
+      ],
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    },
+  ]);
 
-  useEffect(() => {
-    const getData = async () => {
-      const headers = await fetch("http://localhost:5107/api/products");
-      const data = await headers.json();
-      setData(data);
-    };
-    getData();
-  }, []);
-  return (
-    <div>
-      <Announcementbar />
-      <Header />
-      <Content>
-        <Hero></Hero>
-        <FeaturedIn></FeaturedIn>
-        <WorkSection></WorkSection>
-        <ProductList></ProductList>
-        <Testimonial></Testimonial>
-      </Content>
-      <Footer></Footer>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

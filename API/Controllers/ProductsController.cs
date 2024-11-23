@@ -24,7 +24,7 @@ namespace API
             return await _storeContext.Products.ToListAsync();
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProductById(int id)
         {
 

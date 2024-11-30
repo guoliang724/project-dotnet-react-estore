@@ -1,5 +1,3 @@
-import React from "react";
-
 import Hero from "../../components/hero";
 import WorkSection from "../../components/work";
 import Testimonial from "../../components/testmonial/indext";

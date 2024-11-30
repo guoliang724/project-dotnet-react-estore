@@ -1,13 +1,21 @@
-import ProductCard, { IProduct } from "../productCard";
+import ProductCard, { EffectType, IProduct } from "../productCard";
 import { getProducts } from "../../api";
 import { useLoaderData } from "react-router-dom";
+
+export interface IProps {
+  title: string;
+  displayNumber: number;
+  effectType: EffectType;
+}
 
 const ProductList = () => {
   const products = useLoaderData() as IProduct[];
 
   const ProductList = products
     .splice(0, 8)
-    .map((p, i) => <ProductCard key={i} {...p} />);
+    .map((p, i) => (
+      <ProductCard key={i} product={p} effectType={EffectType.FLIP} />
+    ));
 
   return (
     <div className="w-3/5 mx-auto my-16">

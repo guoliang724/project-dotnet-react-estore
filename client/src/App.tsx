@@ -3,13 +3,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/home";
 import AppLayout from "./layout/AppLayout";
 import Error from "./components/error/Index";
-import ProductList, {
-  loader as productListLoader,
-} from "./components/productList";
-import ProductDetail from "./components/productDetail";
+import ProductDetail, {
+  loader as prodcutDetailLoader,
+} from "./components/productDetail";
 import Contact from "./page/contact";
 import News from "./page/news";
 import NotFound from "./components/notFound";
+import Product, { loader as productListLoader } from "./page/product";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,15 +20,16 @@ function App() {
           path: "/",
           element: <Home />,
           errorElement: <Error />,
-          loader: productListLoader,
         },
         {
           path: "/products",
           loader: productListLoader,
-          element: <ProductList />,
+          element: <Product />,
         },
         {
           path: "/product/:id",
+          loader: prodcutDetailLoader,
+          errorElement: <Error />,
           element: <ProductDetail />,
         },
         {

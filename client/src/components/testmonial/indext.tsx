@@ -1,4 +1,4 @@
-import image from "../../imgs/testmonial.jpg";
+import image from "../../imgs/testmonial.webp";
 
 const Testimonial = () => {
   return (

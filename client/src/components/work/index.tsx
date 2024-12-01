@@ -1,11 +1,15 @@
+import workone from "../../imgs/workin/work1.webp";
+import worktwo from "../../imgs/workin/work2.webp";
+import workthree from "../../imgs/workin/work3.webp";
+
 function WorkSection() {
   return (
     <div className="w-3/5 mx-auto my-16 bg-[#fff4e6]">
       <div className="grid grid-cols-2 gap-x-4">
         <div className="flex justify-end">
           <img
-            src="https://blobstorage1114.blob.core.windows.net/images/mop-1122-3.jpg"
-            className="h-auto object-cover aspect-square"
+            src={workthree}
+            className="h-auto object-cover aspect-square content-visibility-auto contain-intrinsic-size-[auto_200px]"
             alt="image of a fancy brush"
           ></img>
         </div>
@@ -37,16 +41,16 @@ function WorkSection() {
         </div>
         <div className="flex justify-start">
           <img
-            src="https://blobstorage1114.blob.core.windows.net/images/mop-1122-1.jpg"
-            className="h-auto object-cover aspect-square"
+            src={workone}
+            className="h-auto object-cover aspect-square content-visibility-auto contain-intrinsic-size-[auto_200px]"
             alt="image of a fancy brush"
           ></img>
         </div>
 
         <div className="flex justify-end">
           <img
-            src="https://blobstorage1114.blob.core.windows.net/images/mop-1122-2.jpg"
-            className="h-auto object-cover aspect-square"
+            src={worktwo}
+            className="h-auto object-cover aspect-square content-visibility-auto contain-intrinsic-size-[auto_200px]"
             alt="image of a fancy brush"
           ></img>
         </div>

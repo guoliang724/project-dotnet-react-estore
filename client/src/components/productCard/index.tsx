@@ -28,6 +28,7 @@ export default function ProductCard({
   product: { id, pictureUrl, type, description, price },
   effectType,
 }: IProps) {
+  const navigate = useNavigate();
   const [url, setUrl] = useState(pictureUrl);
 
   const handleMouseOver = () => {
@@ -39,7 +40,7 @@ export default function ProductCard({
   const handleMouseLeave = () => {
     setUrl(pictureUrl);
   };
-  const navigate = useNavigate();
+
   const productDetail = () => {
     navigate(`/product/${id}`);
   };
@@ -50,10 +51,11 @@ export default function ProductCard({
         return (
           <Image className="w-full object-cover" src={pictureUrl} alt={type} />
         );
+
       case EffectType.ZOOM:
         return (
           <img
-            className="w-full object-cover   transition-all hover:scale-110 duration-700"
+            className="w-full object-cover transition-all hover:scale-110 duration-700"
             src={pictureUrl}
             alt={type}
           />

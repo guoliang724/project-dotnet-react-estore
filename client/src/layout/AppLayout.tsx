@@ -1,24 +1,18 @@
-import React from "react";
-import { Outlet, useNavigation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Announcementbar from "./announcementbar";
-
 import Header from "./header";
-
 import Footer from "./footer";
-import Loader from "../components/loader";
 
 const AppLayout = () => {
-  const navigation = useNavigation();
-  console.log("++++++", navigation);
-  const isLoading = navigation.state === "loading";
-
   return (
-    <>
+    <div className="flex-col">
       <Announcementbar />
       <Header></Header>
-      <main>{isLoading ? <Loader /> : <Outlet />}</main>
+      <main className="flex-2">
+        <Outlet />
+      </main>
       <Footer></Footer>
-    </>
+    </div>
   );
 };
 

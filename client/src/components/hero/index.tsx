@@ -1,5 +1,5 @@
 import React from "react";
-import heroImage from "../../imgs/hero.png";
+import heroImage from "../../imgs/hero.webp";
 import { useNavigate } from "react-router-dom";
 
 const Hero: React.FC = () => {

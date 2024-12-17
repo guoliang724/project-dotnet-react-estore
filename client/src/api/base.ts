@@ -12,6 +12,7 @@ const sleep = (timer: number) =>
 http.interceptors.response.use(
   async (response: AxiosResponse) => {
     // await sleep(1000);
+
     return response;
   },
   (error: AxiosError) => {

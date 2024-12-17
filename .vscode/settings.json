@@ -25,5 +25,6 @@
   "auto-close-tag.disableOnLanguage": [],
   "auto-close-tag.fullMode": true,
   "auto-close-tag.insertSpaceBeforeSelfClosingTag": true,
-  "auto-close-tag.SublimeText3Mode": true
+  "auto-close-tag.SublimeText3Mode": true,
+  "csharpextensions.includeNamespaces": false
 }

@@ -1,16 +1,39 @@
-import workone from "../../imgs/workin/work1.webp";
-import worktwo from "../../imgs/workin/work2.webp";
-import workthree from "../../imgs/workin/work3.webp";
+import _workone from "../../imgs/workin/work1.webp";
+import _worktwo from "../../imgs/workin/work2.webp";
+import _workthree from "../../imgs/workin/work3.webp";
+import zipWorkOne from "../../imgs/workin/work1_zon.webp";
+import zipWorkTwo from "../../imgs/workin/work2_zon.webp";
+import zipWorkThree from "../../imgs/workin/work3_zon.webp";
+import { useState } from "react";
+
+enum IMAGE_ORDER {
+  ONE,
+  TWO,
+  THREE,
+}
 
 function WorkSection() {
+  const [workOne, setWorkOne] = useState(zipWorkOne);
+  const [workTwo, setWorkTwo] = useState(zipWorkTwo);
+  const [workThree, setWorkThree] = useState(zipWorkThree);
+  const handleOnLoad = (order: IMAGE_ORDER) => {
+    if (order === IMAGE_ORDER.ONE) {
+      setWorkOne(_workone);
+    } else if (order === IMAGE_ORDER.TWO) {
+      setWorkTwo(_worktwo);
+    } else {
+      setWorkThree(_workthree);
+    }
+  };
   return (
     <div className="w-3/5 mx-auto my-16 bg-[#fff4e6]">
       <div className="grid grid-cols-2 gap-x-4">
         <div className="flex justify-end">
           <img
-            src={workthree}
-            className="h-auto object-cover aspect-square content-visibility-auto contain-intrinsic-size-[auto_200px]"
+            src={workThree}
+            className="h-auto object-cover aspect-square "
             alt="image of a fancy brush"
+            onLoad={() => handleOnLoad(IMAGE_ORDER.THREE)}
           ></img>
         </div>
         <div className="flex justify-center items-start flex-col px-5">
@@ -41,17 +64,19 @@ function WorkSection() {
         </div>
         <div className="flex justify-start">
           <img
-            src={workone}
-            className="h-auto object-cover aspect-square content-visibility-auto contain-intrinsic-size-[auto_200px]"
+            src={workTwo}
+            className="h-auto object-cover aspect-square "
             alt="image of a fancy brush"
+            onLoad={() => handleOnLoad(IMAGE_ORDER.TWO)}
           ></img>
         </div>
 
         <div className="flex justify-end">
           <img
-            src={worktwo}
-            className="h-auto object-cover aspect-square content-visibility-auto contain-intrinsic-size-[auto_200px]"
+            src={workOne}
+            className="h-auto object-cover aspect-square "
             alt="image of a fancy brush"
+            onLoad={() => handleOnLoad(IMAGE_ORDER.ONE)}
           ></img>
         </div>
         <div className="flex justify-center items-start flex-col px-5">

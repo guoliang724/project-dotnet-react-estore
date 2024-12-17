@@ -18,7 +18,7 @@ namespace API.Controllers
         [HttpGet("bad-request")]
         public ActionResult GetBadRequest()
         {
-            var problemDetail = new ProblemDetails { Title = "SThis is a bed request" };
+            var problemDetail = new ProblemDetails { Title = "This is a bed request" };
             return BadRequest(problemDetail);
         }
 
@@ -26,7 +26,8 @@ namespace API.Controllers
         [HttpGet("unauthorized")]
         public ActionResult GetUnauthorized()
         {
-            return Unauthorized();
+            var problemDetail = new ProblemDetails { Title = "you are unauthroized" };
+            return Unauthorized(problemDetail);
         }
 
 
@@ -34,6 +35,7 @@ namespace API.Controllers
         public ActionResult GetValidationError()
         {
             ModelState.AddModelError("Problem1", "this is a the first error");
+            ModelState.AddModelError("Problem2", "this is a the seconde error");
             return ValidationProblem();
         }
 
@@ -41,6 +43,14 @@ namespace API.Controllers
         public ActionResult GetServerError()
         {
             throw new Exception("this is a server error");
+        }
+
+        [HttpGet("forbidden")]
+        public ActionResult GetForbidden()
+        {
+            var problemDetail = new ProblemDetails { Title = "you are forbidden" };
+
+            return Forbid("you are forbbiden");
         }
     }
 }

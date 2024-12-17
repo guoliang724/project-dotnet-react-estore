@@ -1,10 +1,18 @@
-import React from "react";
-import { useRouteError } from "react-router-dom";
+import { useRouteError, ErrorResponse } from "react-router-dom";
+
+export enum IErrorMessage {
+  NO_SUCH_PRODUCT = "No such product",
+}
 
 function Error() {
-  const error = useRouteError();
+  const error = useRouteError() as ErrorResponse;
   console.log("++++++++error", error);
-  return <div className="w-3/5 mx-auto my-16">Error....</div>;
+
+  if (error.data.title === IErrorMessage.NO_SUCH_PRODUCT) {
+    return <div className="w-3/5 mx-auto my-16">{error.data.title}</div>;
+  }
+
+  return <div className="w-3/5 mx-auto my-16">Error</div>;
 }
 
 export default Error;

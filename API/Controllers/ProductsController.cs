@@ -29,7 +29,10 @@ namespace API
         public async Task<ActionResult<Product>> GetProductById(int id)
         {
 
-            return await _storeContext.Products.FindAsync(id);
+            var product = await _storeContext.Products.FindAsync(id);
+
+            if (product == null) return NotFound(new ProblemDetails { Title = "No such product" });
+            return product;
         }
     }
 }

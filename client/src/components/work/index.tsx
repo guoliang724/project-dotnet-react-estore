@@ -26,7 +26,7 @@ function WorkSection() {
     }
   };
   return (
-    <div className="w-3/5 mx-auto my-16 bg-[#fff4e6]">
+    <div className="w-4/5 mx-auto my-16 bg-[#fff4e6]">
       <div className="grid grid-cols-2 gap-x-4">
         <div className="flex justify-end">
           <img

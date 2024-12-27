@@ -26,7 +26,7 @@ const Product = () => {
       <ProductList products={products} effectType={EffectType.ZOOM} />
     );
 
-  return <div className="w-3/5 mx-auto my-16">{RenderComponent}</div>;
+  return <div className="w-4/5 mx-auto my-16">{RenderComponent}</div>;
 };
 
 export const loader = async () => {

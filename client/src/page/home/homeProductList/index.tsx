@@ -24,7 +24,7 @@ function HomeProductList() {
       <ProductList products={products} effectType={EffectType.VIEW} />
     );
 
-  return <div className="w-3/5 mx-auto my-16">{RenderComponent}</div>;
+  return <div className="w-4/5 mx-auto my-16">{RenderComponent}</div>;
 }
 
 export default HomeProductList;

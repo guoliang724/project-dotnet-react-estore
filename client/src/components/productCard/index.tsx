@@ -4,13 +4,14 @@ import { useState } from "react";
 
 export interface IProduct {
   id: number;
-  productName: string;
+  name: string;
   description: "string";
   price: number;
   pictureUrl: string;
   brand: string;
   type: string;
   quantityInStock: number;
+  demoImages: string[];
 }
 
 export enum EffectType {
@@ -25,7 +26,7 @@ export interface IProps {
 }
 
 export default function ProductCard({
-  product: { id, pictureUrl, type, description, price },
+  product: { id, pictureUrl, type, name, description, price },
   effectType,
 }: IProps) {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ export default function ProductCard({
           className="mt-3 mb-2 text-sm hover:underline"
           onClick={productDetail}
         >
-          {description}
+          {name}
         </span>
         <span>From &#x24; {price.toFixed(2)} USD</span>
       </figure>

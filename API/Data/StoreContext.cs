@@ -124,13 +124,52 @@ namespace API.Data
                 new Product
                 {
                     Id = 10,
-                    Name = "Blue Code Cloths",
-                    Description = "Glass cleaner leaves streak-free shine, no residue left behind.",
+                    Name = "Glass cleaner leaves streak-free shine, no residue left behind",
+                    Description = @"<p>
+                Elevate your bathroom or spa experience with our
+                <strong>luxuriously soft white rolled towels</strong>. Made from
+                premium-quality cotton, these towels are ultra-absorbent,
+                durable, and gentle on the skin, making them perfect for
+                everyday use or special occasions. Each towel is elegantly
+                rolled and displayed on a stylish macrame swing, showcasing a
+                clean, minimalist aesthetic that blends effortlessly into any
+                décor. Whether you're upgrading your bathroom essentials or
+                looking for a thoughtful gift, these towels combine practicality
+                with timeless sophistication.
+              </p>
+              <ul className='list-disc list-inside'>
+                <li>
+                  <strong>Material</strong>: 100% Premium Cotton
+                </li>
+                <li>
+                  <strong>Features</strong>: Highly absorbent, quick-drying, and
+                  soft to the touch
+                </li>
+                <li>
+                  <strong>Ideal For</strong>: Bathrooms, spas, or as decorative
+                  accents
+                </li>
+                <li>
+                  <strong>Care Instructions</strong>: Machine washable, tumble
+                  dry on low
+                </li>
+              </ul>
+              <p>
+                Bring a touch of elegance and comfort to your home with these
+                versatile and beautifully designed towels.
+              </p>",
                     Price = 19.99,
-                    PictureUrl = "imgs/products/product10.jpg",
+                    PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product10.webp",
                     Brand = "eSayClean",
                     Type = "Cloths",
                     QuantityInStock = 10,
+                    DemoImages = new(){
+                        "https://blobstorage1114.blob.core.windows.net/images/1.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/2.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/3.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/4.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/5.webp"
+                        }
                 },
                 new Product
                 {

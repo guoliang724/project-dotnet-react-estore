@@ -2,13 +2,13 @@ import image from "../../imgs/testmonial.webp";
 
 const Testimonial = () => {
   return (
-    <div className="w-3/5 mx-auto my-16 bg-gray-100 grid grid-cols-10  shadow-lg rounded-sm">
+    <div className="w-4/5 mx-auto my-16 bg-gray-100 grid grid-cols-10  shadow-lg rounded-sm">
       <div className="col-span-6 py-1 ps-1">
         <img src={image} className=""></img>
       </div>
       <div className="col-span-4 flex flex-col">
         <div className="h-1/4"></div>
-        <div className="h-3/4 flex flex-col  bg-white justify-center items-center p-4">
+        <div className="h-3/4 flex flex-col  bg-white justify-center items-start p-4">
           <h1 className="text-lg font-bold">
             A Magical Tool Offering A Cleanin House
           </h1>

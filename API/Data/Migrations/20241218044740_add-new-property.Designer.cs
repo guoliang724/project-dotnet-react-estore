@@ -2,6 +2,7 @@
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20241218044740_add-new-property")]
+    partial class addnewproperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
@@ -193,8 +196,8 @@ namespace API.Data.Migrations
                             Id = 10,
                             Brand = "eSayClean",
                             DemoImages = "[\"https://blobstorage1114.blob.core.windows.net/images/1.webp\",\"https://blobstorage1114.blob.core.windows.net/images/2.webp\",\"https://blobstorage1114.blob.core.windows.net/images/3.webp\",\"https://blobstorage1114.blob.core.windows.net/images/4.webp\",\"https://blobstorage1114.blob.core.windows.net/images/5.webp\"]",
-                            Description = "<p>\r\n                Elevate your bathroom or spa experience with our\r\n                <strong>luxuriously soft white rolled towels</strong>. Made from\r\n                premium-quality cotton, these towels are ultra-absorbent,\r\n                durable, and gentle on the skin, making them perfect for\r\n                everyday use or special occasions. Each towel is elegantly\r\n                rolled and displayed on a stylish macrame swing, showcasing a\r\n                clean, minimalist aesthetic that blends effortlessly into any\r\n                décor. Whether you're upgrading your bathroom essentials or\r\n                looking for a thoughtful gift, these towels combine practicality\r\n                with timeless sophistication.\r\n              </p>\r\n              <ul className='list-disc list-inside'>\r\n                <li>\r\n                  <strong>Material</strong>: 100% Premium Cotton\r\n                </li>\r\n                <li>\r\n                  <strong>Features</strong>: Highly absorbent, quick-drying, and\r\n                  soft to the touch\r\n                </li>\r\n                <li>\r\n                  <strong>Ideal For</strong>: Bathrooms, spas, or as decorative\r\n                  accents\r\n                </li>\r\n                <li>\r\n                  <strong>Care Instructions</strong>: Machine washable, tumble\r\n                  dry on low\r\n                </li>\r\n              </ul>\r\n              <p>\r\n                Bring a touch of elegance and comfort to your home with these\r\n                versatile and beautifully designed towels.\r\n              </p>",
-                            Name = "Glass cleaner leaves streak-free shine, no residue left behind",
+                            Description = "Glass cleaner leaves streak-free shine, no residue left behind.",
+                            Name = "Blue Code Cloths",
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product10.webp",
                             Price = 19.989999999999998,
                             QuantityInStock = 10,

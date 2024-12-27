@@ -44,7 +44,7 @@ function Contact() {
   ));
 
   return (
-    <div className="w-3/5 mx-auto my-16 flex flex-col gap-6 min-h-72">
+    <div className="w-4/5 mx-auto my-16 flex flex-col gap-6 min-h-72">
       <Card title="For error test purpose" bordered>
         <div className="flex justify-between">
           <Button onClick={handle400}>400 badrequest</Button>

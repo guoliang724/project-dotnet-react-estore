@@ -31,7 +31,7 @@ export default function Header() {
     </>
   );
   return (
-    <div className="h-20 flex flex-row justify-between mx-40 px-12 py-5 tracking-wider">
+    <div className="h-20 flex flex-row justify-between mx-32 py-5 tracking-wider">
       <div className="flex flex-row justify-evenly items-center gap-5">
         <div className="w-30">
           <img src={logo} className="w-full h-8" />

@@ -9,7 +9,6 @@ function ProductCardSkeletonList() {
     .fill(0)
     .map((i) => <ProductCardSkeleton />);
 
-  console.log("+++++", RenderSkeleton);
   return (
     <div className="w-full">
       <div className="text-xl tracking-wide text-gray-600 mb-6 font-medium">

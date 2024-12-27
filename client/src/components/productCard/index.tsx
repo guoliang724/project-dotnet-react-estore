@@ -33,7 +33,6 @@ export default function ProductCard({
   const [url, setUrl] = useState(pictureUrl);
 
   const handleMouseOver = () => {
-    console.log(`imgs/products/product${id + 10}}.jpg`);
     if (id <= 10) setUrl(`imgs/products/product${id + 10}.jpg`);
     else setUrl(`imgs/products/product${id - 10}.jpg`);
   };

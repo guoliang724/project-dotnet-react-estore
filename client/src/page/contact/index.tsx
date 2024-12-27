@@ -7,7 +7,7 @@ import {
   httpvalidation,
 } from "../../api/error";
 import React, { useState } from "react";
-import { Button, Card, Space } from "antd";
+import { Button, Card } from "antd";
 
 function Contact() {
   const [localErrors, setErrors] = useState([]);
@@ -34,7 +34,6 @@ function Contact() {
 
   const handlevalidation = async () => {
     await httpvalidation().catch((error) => {
-      console.log(error);
       setErrors(error);
     });
   };

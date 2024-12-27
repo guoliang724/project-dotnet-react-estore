@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import {
   LoginOutlined,
@@ -7,9 +7,16 @@ import {
 } from "@ant-design/icons";
 
 import logo from "../../imgs/logo-page.png";
-import logo1 from "../../imgs/logo.svg";
 
 export default function Header() {
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      console.log("+++++headerref", ref.current.getBoundingClientRect());
+    }
+  }, [ref.current]);
+
   const rightLinks = [
     { path: "/", name: "Home" },
     { path: "products", name: "Product" },
@@ -26,7 +33,10 @@ export default function Header() {
   const RightLinkComponent = (
     <>
       <SearchOutlined className="cursor-pointer" />
-      <ShoppingCartOutlined className="cursor-pointer" />
+      <ShoppingCartOutlined
+        className="cursor-pointer animate-cartBounce"
+        ref={ref}
+      />
       <LoginOutlined className="cursor-pointer" />
     </>
   );

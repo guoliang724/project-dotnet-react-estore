@@ -2,10 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-// import required modules
-import { Pagination, Navigation } from "swiper/modules";
 
-// Import Swiper styles
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./index.css";
@@ -13,6 +11,7 @@ import "./index.css";
 import { getProductDetail } from "../../api/product";
 import { IProduct } from "../productCard";
 import { Swiper as SwiperType } from "swiper/types";
+import AddSubButton from "../addsubButton";
 
 const ProductDetail = () => {
   const product = useLoaderData() as IProduct;
@@ -45,8 +44,6 @@ const ProductDetail = () => {
   const [numberSwiper, setNumberSwiper] = useState(0);
   const [isEnd, setIsEnd] = useState(false);
   const [isBegin, setIsBegin] = useState(true);
-
-  console.log("+++++++++++++", percentObj);
 
   const cubeImageList = [pictureUrl, ...demoImages];
 
@@ -184,7 +181,14 @@ const ProductDetail = () => {
         <div className="w-1/2 flex flex-col gap-3 font-Assitant">
           <div className="text-sm tracking-widest opacity-50">{brand}</div>
           <div className="text-4xl tracking-wide">{name}</div>
-          <div className="text-base">&#x24; {price.toFixed(2)} USD</div>
+          <div className="h-12 text-sm flex flex-row justify-start gap-3 align-text-bottom">
+            <span className="flex justify-center self-center">&#x24;</span>
+            <span className="text-orange-500 text-3xl italic justify-center align-top">
+              {price.toFixed(2)}
+            </span>
+            <span className="text-sm justify-center self-center">USD</span>
+            <AddSubButton />
+          </div>
 
           <div className="text-green-800 font-medium">
             In Stock: {quantityInStock}

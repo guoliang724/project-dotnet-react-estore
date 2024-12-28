@@ -13,7 +13,6 @@ export default function Header() {
 
   useEffect(() => {
     if (ref.current) {
-      console.log("+++++headerref", ref.current.getBoundingClientRect());
     }
   }, [ref.current]);
 

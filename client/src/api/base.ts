@@ -4,9 +4,10 @@ import { message } from "antd";
 const http = axios.create({
   baseURL: "http://localhost:5107/",
   timeout: 1000,
+  withCredentials: true,
 });
 
-const sleep = (timer: number) =>
+export const sleep = (timer: number) =>
   new Promise((resolve) => setTimeout(resolve, timer));
 
 http.interceptors.response.use(

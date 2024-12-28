@@ -38,6 +38,7 @@ const ProductDetail = () => {
     pictureUrl,
     quantityInStock,
     type,
+    id,
     demoImages = [],
   } = product;
 
@@ -187,7 +188,7 @@ const ProductDetail = () => {
               {price.toFixed(2)}
             </span>
             <span className="text-sm justify-center self-center">USD</span>
-            <AddSubButton />
+            <AddSubButton productId={id} />
           </div>
 
           <div className="text-green-800 font-medium">

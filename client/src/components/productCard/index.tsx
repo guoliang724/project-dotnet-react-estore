@@ -2,33 +2,12 @@ import { Image } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export interface IProduct {
-  id: number;
-  name: string;
-  description: "string";
-  price: number;
-  pictureUrl: string;
-  brand: string;
-  type: string;
-  quantityInStock: number;
-  demoImages: string[];
-}
-
-export enum EffectType {
-  ZOOM = "ZOOM",
-  FLIP = "FLIP",
-  VIEW = "VIEW",
-}
-
-export interface IProps {
-  product: IProduct;
-  effectType?: EffectType;
-}
+import { IProductCard, EffectType } from "../../types/product";
 
 export default function ProductCard({
   product: { id, pictureUrl, type, name, description, price },
   effectType,
-}: IProps) {
+}: IProductCard) {
   const navigate = useNavigate();
   const [url, setUrl] = useState(pictureUrl);
 
@@ -42,7 +21,7 @@ export default function ProductCard({
   };
 
   const productDetail = () => {
-    navigate(`/product/${id}`);
+    navigate(`/product/${id}`, { replace: true });
   };
 
   const ImageComponent = () => {

@@ -1,20 +1,5 @@
 import http from "./base";
-
-interface IBasketItem {
-  productId: number;
-  name: string;
-  price: number;
-  pictureUrl: string;
-  brand: string;
-  type: string;
-  quantity: number;
-}
-
-interface IBasketAction {
-  buyerId: string;
-  items: IBasketItem[];
-  id: number;
-}
+import { IBasketAction } from "../types/basket";
 
 export const getBasket = () => {
   return http.get<IBasketAction>("/api/basket");

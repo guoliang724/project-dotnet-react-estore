@@ -9,12 +9,13 @@ import "swiper/css/navigation";
 import "./index.css";
 
 import { getProductDetail } from "../../api/product";
-import { IProduct } from "../productCard";
+import { IProduct } from "../../types/product";
 import { Swiper as SwiperType } from "swiper/types";
 import AddSubButton from "../addsubButton";
 
 const ProductDetail = () => {
   const product = useLoaderData() as IProduct;
+
   const swiperRef = useRef<SwiperType>();
   const moveRef = useRef<HTMLDivElement>(null);
   const [isMouseOver, setIsMouseOver] = useState(false);

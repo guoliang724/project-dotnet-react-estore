@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ProductCardSkeletonList from "../../../components/productList/skeleton";
 import ProductList from "../../../components/productList";
-import { EffectType } from "../../../components/productCard";
+import { EffectType, IProduct } from "../../../types/product";
 import { getProducts } from "../../../api";
 
 function HomeProductList() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
     getProducts()

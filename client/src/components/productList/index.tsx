@@ -1,4 +1,5 @@
-import ProductCard, { EffectType, IProduct } from "../productCard";
+import ProductCard from "../productCard";
+import { EffectType, IProduct } from "../../types/product";
 
 export interface IProps {
   products: IProduct[];

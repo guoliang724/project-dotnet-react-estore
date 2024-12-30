@@ -1,22 +1,30 @@
 import React, { useEffect } from "react";
 import { Button } from "antd";
 
-import { addToBasket, getBasket } from "../../api";
-import { sleep } from "../../api/base";
+import {
+  addBasketItemAsync,
+  removeBasketItemAsync,
+} from "../../store/slice/basketSlice";
+import { useAppDispatch, useAppSelector } from "../../store/slice";
 
 interface IProps {
   productId: number;
 }
 
 function AddSubButton({ productId }: IProps) {
+  const { basket, status } = useAppSelector((state) => state.basket);
+
+  const dispatch = useAppDispatch();
+  const quantity = basket?.items.find(
+    (i) => i.productId === productId
+  )?.quantity;
+
   const ref = React.useRef<HTMLDivElement>(null);
   const [originX, setOriginX] = React.useState(0);
   const [originY, setOriginY] = React.useState(0);
   const [x, setX] = React.useState(0);
   const [y, setY] = React.useState(0);
   const [start, setStart] = React.useState(false);
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [quantity, setQuantity] = React.useState(0);
 
   useEffect(() => {
     if (ref.current) {
@@ -25,17 +33,6 @@ function AddSubButton({ productId }: IProps) {
       setOriginY(rect.y);
     }
   }, [ref.current]);
-
-  useEffect(() => {
-    const getBaseketNow = async (productId: number) => {
-      const { data } = await getBasket();
-      const quantity = data.items.find(
-        (p) => p.productId === productId
-      )?.quantity;
-      setQuantity(quantity || 0);
-    };
-    getBaseketNow(productId);
-  }, [productId, start]);
 
   useEffect(() => {
     if (!start || !originX || !originY) return;
@@ -48,14 +45,6 @@ function AddSubButton({ productId }: IProps) {
     setY(y);
   }, [start, originX, originY]);
 
-  useEffect(() => {
-    if (start) {
-      const timer = setTimeout(handleTransitionEnd, 550);
-
-      return () => clearTimeout(timer);
-    }
-  }, [start]);
-
   const handleTransitionEnd = () => {
     setStart(false);
     setX(0);
@@ -63,33 +52,44 @@ function AddSubButton({ productId }: IProps) {
   };
 
   const handleAddtoBasket = async () => {
-    setIsLoading(true);
     setStart(true);
-    await sleep(1000);
 
     try {
-      await addToBasket(productId);
+      dispatch(addBasketItemAsync({ productId }));
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false);
+    }
+  };
+
+  const handleBaskeSub = async () => {
+    try {
+      dispatch(removeBasketItemAsync({ productId, quantity: 1 }));
+    } catch (error) {
+      console.log(error);
+    } finally {
     }
   };
 
   return (
     <div className="flex flex-row justify-between items-center gap-3">
-      <Button className="bg-white" shape="circle">
+      <Button
+        className="bg-white"
+        shape="circle"
+        disabled={status.includes(`pendingRemoveItem${productId}`) || !quantity}
+        onClick={handleBaskeSub}
+      >
         -
       </Button>
-      <span className="">{quantity}</span>
+      <span className="">{quantity ?? 0}</span>
       <div className="relative">
         <Button
           type="primary"
           shape="circle"
           onClick={handleAddtoBasket}
-          loading={isLoading}
+          loading={status.includes(`pendingAddItem${productId}`)}
         >
-          {!isLoading && "+"}
+          {!status.includes(`pendingAddItem${productId}`) && "+"}
         </Button>
 
         <div
@@ -100,6 +100,7 @@ function AddSubButton({ productId }: IProps) {
             transform: `translateX(${x}px)`,
           }}
           ref={ref}
+          onTransitionEnd={handleTransitionEnd}
         >
           <Button
             type="primary"

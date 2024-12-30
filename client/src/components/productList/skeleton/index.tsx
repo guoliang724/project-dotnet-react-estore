@@ -7,7 +7,7 @@ function ProductCardSkeletonList() {
   const skeletonCardNumber = 8;
   const RenderSkeleton = new Array(skeletonCardNumber)
     .fill(0)
-    .map((i) => <ProductCardSkeleton />);
+    .map((i, x) => <ProductCardSkeleton key={x} />);
 
   return (
     <div className="w-full">

@@ -1,8 +1,5 @@
-import ProductCard, {
-  EffectType,
-  IProduct,
-} from "../../components/productCard";
 import ProductList from "../../components/productList";
+import { EffectType, IProduct } from "../../types/product";
 
 import { getProducts } from "../../api";
 import { useLoaderData, useNavigation } from "react-router-dom";

@@ -1,20 +1,33 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   LoginOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
+import { Badge } from "antd";
 
 import logo from "../../imgs/logo-page.png";
+import { useAppSelector } from "../../store/slice";
 
 export default function Header() {
   const ref = React.useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const { basket } = useAppSelector((state) => state.basket);
+
+  const itemNumber = basket?.items.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  );
 
   useEffect(() => {
     if (ref.current) {
     }
   }, [ref.current]);
+
+  const handleOnClickBasket = () => {
+    navigate("/basket");
+  };
 
   const rightLinks = [
     { path: "/", name: "Home" },
@@ -32,10 +45,14 @@ export default function Header() {
   const RightLinkComponent = (
     <>
       <SearchOutlined className="cursor-pointer" />
-      <ShoppingCartOutlined
-        className="cursor-pointer animate-cartBounce"
-        ref={ref}
-      />
+      <Badge count={itemNumber} size="small" color="geekblue">
+        <ShoppingCartOutlined
+          className="cursor-pointer animate-cartBounce text-base"
+          ref={ref}
+          onClick={handleOnClickBasket}
+        />
+      </Badge>
+
       <LoginOutlined className="cursor-pointer" />
     </>
   );

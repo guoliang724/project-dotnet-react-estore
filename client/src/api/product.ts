@@ -1,4 +1,4 @@
-import { IProduct } from "@/components/productCard";
+import { IProduct } from "../types/product";
 import http from "./base";
 
 export const getProducts = async () => {

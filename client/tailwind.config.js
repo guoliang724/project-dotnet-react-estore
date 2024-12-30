@@ -1,4 +1,5 @@
 import { keyframes } from "@emotion/react";
+import { transform } from "typescript";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -24,9 +25,15 @@ export default {
           "75%": { transform: "scale(0.9)" },
           "100%": { transform: "scale(1)" },
         },
+        fadeOut: {
+          "0%": { opacity: 1, transform: "scale(1)" },
+          "50%": { opacity: 0.5, transform: "scale(0.9)" },
+          "100%": { opacity: 0 },
+        },
       },
       animation: {
         cartBounce: "cart 500ms ease-in-out",
+        fadeOut: "fadeOut 500ms forwards",
       },
       transitionTimingFunction: {
         xRun: "linear",

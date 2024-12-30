@@ -28,7 +28,12 @@ export default function ProductCard({
     switch (effectType) {
       case EffectType.VIEW:
         return (
-          <Image className="w-full object-cover" src={pictureUrl} alt={type} />
+          <Image
+            className="w-full object-cover"
+            src={pictureUrl}
+            alt={type}
+            preview={{ getContainer: false }}
+          />
         );
 
       case EffectType.ZOOM:

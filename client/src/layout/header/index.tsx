@@ -8,12 +8,15 @@ import {
 import { Badge } from "antd";
 
 import logo from "../../imgs/logo-page.png";
-import { useAppSelector } from "../../store/slice";
+import { useAppDispatch, useAppSelector } from "../../store/slice";
+import { setBasketLocation } from "../../store/slice/uiSlice";
 
 export default function Header() {
   const ref = React.useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const { basket } = useAppSelector((state) => state.basket);
+  const { isBasketAnimationDone } = useAppSelector((state) => state.ui);
+  const dispatch = useAppDispatch();
 
   const itemNumber = basket?.items.reduce(
     (acc, item) => acc + item.quantity,
@@ -22,6 +25,9 @@ export default function Header() {
 
   useEffect(() => {
     if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+
+      dispatch(setBasketLocation(rect.toJSON()));
     }
   }, [ref.current]);
 
@@ -47,7 +53,9 @@ export default function Header() {
       <SearchOutlined className="cursor-pointer" />
       <Badge count={itemNumber} size="small" color="geekblue">
         <ShoppingCartOutlined
-          className="cursor-pointer animate-cartBounce text-base"
+          className={`cursor-pointer  text-base ${
+            isBasketAnimationDone ? "animate-cartBounce" : ""
+          }`}
           ref={ref}
           onClick={handleOnClickBasket}
         />

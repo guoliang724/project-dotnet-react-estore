@@ -5,6 +5,7 @@ import {
   addBasketItemAsync,
   removeBasketItemAsync,
 } from "../../store/slice/basketSlice";
+import { setIsBasketAnimationDone } from "../../store/slice/uiSlice";
 import { useAppDispatch, useAppSelector } from "../../store/slice";
 
 interface IProps {
@@ -13,7 +14,7 @@ interface IProps {
 
 function AddSubButton({ productId }: IProps) {
   const { basket, status } = useAppSelector((state) => state.basket);
-
+  const { basketLocation } = useAppSelector((state) => state.ui);
   const dispatch = useAppDispatch();
   const quantity = basket?.items.find(
     (i) => i.productId === productId
@@ -35,23 +36,25 @@ function AddSubButton({ productId }: IProps) {
   }, [ref.current]);
 
   useEffect(() => {
-    if (!start || !originX || !originY) return;
-    const x1 = 1260; // need redux to get the value of cart
-    const y1 = 95;
+    if (!start || !originX || !originY || !basketLocation) return;
+    const x1 = basketLocation.x; // need redux to get the value of cart
+    const y1 = basketLocation.y;
 
     const x = x1 - originX;
     const y = y1 - originY;
     setX(x);
     setY(y);
-  }, [start, originX, originY]);
+  }, [start, originX, originY, basketLocation]);
 
   const handleTransitionEnd = () => {
     setStart(false);
     setX(0);
     setY(0);
+    dispatch(setIsBasketAnimationDone(true));
   };
 
   const handleAddtoBasket = async () => {
+    dispatch(setIsBasketAnimationDone(false));
     setStart(true);
 
     try {

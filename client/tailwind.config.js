@@ -32,7 +32,7 @@ export default {
         },
       },
       animation: {
-        cartBounce: "cart 500ms ease-in-out",
+        cartBounce: "cart 800ms ease-in-out",
         fadeOut: "fadeOut 500ms forwards",
       },
       transitionTimingFunction: {

@@ -1,20 +1,21 @@
 import { Outlet } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
-import { Drawer } from "antd";
 
 import Announcementbar from "./announcementbar";
 import Header from "./header";
 import Footer from "./footer";
 import AutoScrollTop from "./autoScrollTop";
 
-import { useAppDispatch } from "../store/slice";
+import { useAppDispatch, useAppSelector } from "../store/slice";
 import { getBasket } from "../api";
 import { setBasket } from "../store/slice/basketSlice";
 import SearchDrawer from "../components/searchDrawer/indext";
+import { fetchProductsAsync } from "../store/slice/productSlice";
 
 const AppLayout = () => {
   const dispatch = useAppDispatch();
+  const { productLoaded } = useAppSelector((state) => state.products);
 
   useEffect(() => {
     const buyerId = Cookies.get("buyerId");
@@ -22,6 +23,12 @@ const AppLayout = () => {
       getBasket().then((response) => dispatch(setBasket(response.data)));
     }
   }, [dispatch]);
+
+  useEffect(() => {
+    if (!productLoaded) {
+      dispatch(fetchProductsAsync());
+    }
+  }, [productLoaded, dispatch]);
 
   return (
     <AutoScrollTop>

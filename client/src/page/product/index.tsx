@@ -1,5 +1,5 @@
 import ProductList from "../../components/productList";
-import { EffectType, IProduct } from "../../types/product";
+import { EffectType } from "../../types/product";
 
 import { useNavigation } from "react-router-dom";
 

@@ -1,20 +1,11 @@
-import { useEffect } from "react";
 import ProductCardSkeletonList from "../../../components/productList/skeleton";
 import ProductList from "../../../components/productList";
 import { EffectType } from "../../../types/product";
 
-import { fetchProductsAsync } from "../../../store/slice/productSlice";
-import { useAppDispatch, useAppSelector } from "../../../store/slice";
+import { useAppSelector } from "../../../store/slice";
 
 function HomeProductList() {
-  const dispatch = useAppDispatch();
-  const { productLoaded, products } = useAppSelector((state) => state.products);
-
-  useEffect(() => {
-    if (!productLoaded) {
-      dispatch(fetchProductsAsync());
-    }
-  }, [productLoaded, dispatch]);
+  const { products } = useAppSelector((state) => state.products);
 
   const RenderComponent =
     !products || products.length === 0 ? (

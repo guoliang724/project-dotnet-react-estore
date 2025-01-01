@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
     navigate("/products");
   };
   return (
-    <section className="w-full  relative">
+    <section className="w-full relative flex flex-col">
       <div className="absolute inset-0 z-10 flex flex-col justify-end items-center mb-20">
         <strong className="font-Assitant text-white text-4xl  tracking-wide">
           Spotless homes, happy hearts

@@ -1,10 +1,10 @@
 import ProductList from "../../components/productList";
 import { EffectType, IProduct } from "../../types/product";
 
-import { getProducts } from "../../api";
-import { useLoaderData, useNavigation } from "react-router-dom";
+import { useNavigation } from "react-router-dom";
 
 import ProductCardSkeletonList from "../../components/productList/skeleton";
+import { useAppSelector } from "../../store/slice";
 
 export interface IProps {
   title: string;
@@ -13,8 +13,8 @@ export interface IProps {
 }
 
 const Product = () => {
-  const products = useLoaderData() as IProduct[];
   const navigation = useNavigation();
+  const { products } = useAppSelector((state) => state.products);
 
   const RenderComponent =
     navigation.state !== "idle" ? (
@@ -24,11 +24,6 @@ const Product = () => {
     );
 
   return <div className="w-4/5 mx-auto my-16">{RenderComponent}</div>;
-};
-
-export const loader = async () => {
-  const products = await getProducts();
-  return products;
 };
 
 export default Product;

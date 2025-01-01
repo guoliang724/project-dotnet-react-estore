@@ -9,7 +9,10 @@ import { Badge } from "antd";
 
 import logo from "../../imgs/logo-page.png";
 import { useAppDispatch, useAppSelector } from "../../store/slice";
-import { setBasketLocation } from "../../store/slice/uiSlice";
+import {
+  setBasketLocation,
+  setIsOpenSearchDrawer,
+} from "../../store/slice/uiSlice";
 
 export default function Header() {
   const ref = React.useRef<HTMLDivElement>(null);
@@ -35,6 +38,10 @@ export default function Header() {
     navigate("/basket");
   };
 
+  const handleOnOpenSearchDrawer = () => {
+    dispatch(setIsOpenSearchDrawer(true));
+  };
+
   const rightLinks = [
     { path: "/", name: "Home" },
     { path: "products", name: "Product" },
@@ -50,7 +57,10 @@ export default function Header() {
 
   const RightLinkComponent = (
     <>
-      <SearchOutlined className="cursor-pointer" />
+      <SearchOutlined
+        className="cursor-pointer"
+        onClick={handleOnOpenSearchDrawer}
+      />
       <Badge count={itemNumber} size="small" color="geekblue">
         <ShoppingCartOutlined
           className={`cursor-pointer  text-base ${
@@ -65,7 +75,7 @@ export default function Header() {
     </>
   );
   return (
-    <div className="h-20 flex flex-row justify-between mx-32 py-5 tracking-wider">
+    <div className="min-h-20 flex flex-row justify-between mx-32 py-5 tracking-wider">
       <div className="flex flex-row justify-evenly items-center gap-5">
         <div className="w-30">
           <img src={logo} className="w-full h-8" />

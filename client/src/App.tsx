@@ -9,7 +9,7 @@ import ProductDetail, {
 import Contact from "./page/contact";
 import News from "./page/news";
 import NotFound from "./components/notFound";
-import Product, { loader as productListLoader } from "./page/product";
+import Product from "./page/product";
 import BasketPage from "./components/basketPage";
 import Checkout from "./components/checkout";
 
@@ -25,7 +25,6 @@ function App() {
         },
         {
           path: "/products",
-          loader: productListLoader,
           element: <Product />,
         },
         {

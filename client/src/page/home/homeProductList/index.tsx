@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ProductCardSkeletonList from "../../../components/productList/skeleton";
 import ProductList from "../../../components/productList";
-import { EffectType, IProduct } from "../../../types/product";
-import { getProducts } from "../../../api";
+import { EffectType } from "../../../types/product";
+
+import { fetchProductsAsync } from "../../../store/slice/productSlice";
+import { useAppDispatch, useAppSelector } from "../../../store/slice";
 
 function HomeProductList() {
-  const [products, setProducts] = useState<IProduct[]>([]);
+  const dispatch = useAppDispatch();
+  const { productLoaded, products } = useAppSelector((state) => state.products);
 
   useEffect(() => {
-    getProducts()
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((error) => {
-        setProducts([]);
-      });
-  }, []);
+    if (!productLoaded) {
+      dispatch(fetchProductsAsync());
+    }
+  }, [productLoaded, dispatch]);
 
   const RenderComponent =
-    products.length === 0 ? (
+    !products || products.length === 0 ? (
       <ProductCardSkeletonList />
     ) : (
       <ProductList products={products} effectType={EffectType.VIEW} />

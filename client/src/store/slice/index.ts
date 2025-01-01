@@ -3,11 +3,13 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import { basketSlice } from "./basketSlice";
 import { uiSlice } from "./uiSlice";
+import { productSlice } from "./productSlice";
 
 export const store = configureStore({
   reducer: {
     basket: basketSlice.reducer,
     ui: uiSlice.reducer,
+    products: productSlice.reducer,
   },
 });
 

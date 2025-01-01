@@ -19,4 +19,5 @@ export enum EffectType {
 export interface IProductCard {
   product: IProduct;
   effectType?: EffectType;
+  delay?: number;
 }

@@ -7,9 +7,11 @@ export interface IProps {
 }
 
 const ProductList = ({ products, effectType = EffectType.FLIP }: IProps) => {
-  const ProductList = products
-    .splice(0, 8)
-    .map((p, i) => <ProductCard key={i} product={p} effectType={effectType} />);
+  const ProductList = [...products]
+    .slice(2, 10)
+    .map((p, i) => (
+      <ProductCard key={i} product={p} effectType={effectType} delay={i} />
+    ));
 
   return (
     <div className="w-full">

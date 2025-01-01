@@ -7,6 +7,7 @@ import { IProductCard, EffectType } from "../../types/product";
 export default function ProductCard({
   product: { id, pictureUrl, type, name, description, price },
   effectType,
+  delay,
 }: IProductCard) {
   const navigate = useNavigate();
   const [url, setUrl] = useState(pictureUrl);
@@ -56,10 +57,14 @@ export default function ProductCard({
         );
     }
   };
+  const delySec = effectType === EffectType.ZOOM ? (delay ?? 1) * 250 : 1000;
 
   return (
-    <div className="w-full">
-      <figure className="flex flex-col cursor-pointer">
+    <div
+      className={`w-full animate-fadeIn opacity-0`}
+      style={{ animationDelay: `${delySec}ms` }}
+    >
+      <figure className={`flex flex-col cursor-pointer`}>
         <div className="overflow-hidden">{ImageComponent()}</div>
 
         <span

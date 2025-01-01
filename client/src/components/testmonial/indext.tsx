@@ -2,7 +2,7 @@ import image from "../../imgs/testmonial.webp";
 
 const Testimonial = () => {
   return (
-    <div className="w-4/5 mx-auto my-16 bg-gray-100 grid grid-cols-10  shadow-lg rounded-sm">
+    <div className="w-4/5 mx-auto mt-16 bg-gray-100 grid grid-cols-10  shadow-lg rounded-sm">
       <div className="col-span-6 py-1 ps-1">
         <img src={image} className=""></img>
       </div>

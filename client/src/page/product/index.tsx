@@ -20,7 +20,11 @@ const ProductPage = () => {
     navigation.state !== "idle" ? (
       <ProductCardSkeletonList />
     ) : (
-      <ProductList products={products} effectType={EffectType.ZOOM} />
+      <ProductList
+        products={products}
+        effectType={EffectType.ZOOM}
+        isShowSort={true}
+      />
     );
 
   return <div className="w-4/5 mx-auto my-16">{RenderComponent}</div>;

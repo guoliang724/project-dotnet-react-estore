@@ -25,24 +25,72 @@ namespace API.Data
                 new Product
                 {
                     Id = 1,
-                    Name = "Biodegradable dish soap",
-                    Description = "Biodegradable dish soap made from natural ingredients, gentle on hands.",
+                    Name = "Biodegradable dish soap made from natural ingredients, gentle on hands.",
+                    Description = @"<div class='product-description'>
+  <h2>Biodegradable Dish Soap - Gentle on Hands</h2>
+  <p>
+    Keep your dishes sparkling clean while caring for the environment with our 
+    <strong>Biodegradable Dish Soap</strong>. Made from 
+    <em>natural ingredients</em>, this soap is tough on grease but gentle on your hands.
+  </p>
+  <ul>
+    <li><strong>Eco-Friendly:</strong> Completely biodegradable, reducing environmental impact.</li>
+    <li><strong>Natural Formula:</strong> Made with plant-based ingredients for a safer clean.</li>
+    <li><strong>Gentle on Skin:</strong> Perfect for sensitive hands with no harsh chemicals.</li>
+    <li><strong>Powerful Cleaning:</strong> Effectively cuts through grease and grime.</li>
+  </ul>
+  <p>
+    Choose a product that combines <strong>sustainability</strong> and <strong>effectiveness</strong>. 
+    Make dishwashing a cleaner, greener experience today!
+  </p>
+</div>",
                     Price = 13.99,
-                    PictureUrl = "imgs/products/product1.jpg",
-                    Brand = "eSayClean",
+                    PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product1.jpg",
+                    Brand = "Leon's Cleaning",
                     Type = "Bath",
                     QuantityInStock = 13,
+                    DemoImages = new(){
+                        "https://blobstorage1114.blob.core.windows.net/images/product-1-1.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-1-2.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-1-3.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-1-4.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-1-5.webp"
+                        }
                 },
                 new Product
                 {
                     Id = 2,
-                    Name = "Non-toxic laundry detergent",
-                    Description = "Non-toxic, plant-based laundry detergent for sensitive skin",
+                    Name = "Non-toxic, plant-based laundry detergent for sensitive skin",
+                    Description = @"<div class='product-description'>
+  <h2>Non-Toxic, Plant-Based Laundry Detergent for Sensitive Skin</h2>
+  <p>
+    Experience a gentle yet effective clean with our 
+    <strong>Non-Toxic, Plant-Based Laundry Detergent</strong>. Specially formulated for those with 
+    <em>sensitive skin</em>, this detergent is free from harsh chemicals and powered by natural ingredients.
+  </p>
+  <ul>
+    <li><strong>Gentle on Skin:</strong> Perfect for individuals with allergies or sensitivities.</li>
+    <li><strong>Plant-Based Formula:</strong> Made with eco-friendly, biodegradable ingredients.</li>
+    <li><strong>Non-Toxic:</strong> Free from harmful chemicals, ensuring a safe and clean wash.</li>
+    <li><strong>Fresh Clean:</strong> Effectively removes stains and odors while leaving your clothes soft.</li>
+  </ul>
+  <p>
+    Make the switch to a detergent that’s as kind to your skin as it is to the planet. 
+    Try our plant-powered solution today and embrace a healthier, more sustainable way to do laundry.
+  </p>
+</div>",
                     Price = 29.99,
-                    PictureUrl = "imgs/products/product2.jpg",
+                    PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product2.jpg",
                     Brand = "eSayClean",
                     Type = "Bath",
                     QuantityInStock = 12,
+                    DemoImages = new(){
+                        "https://blobstorage1114.blob.core.windows.net/images/product-2-1.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-2-2.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-2-3.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-2-4.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-2-5.webp"
+                        }
                 },
                 new Product
                 {

@@ -6,12 +6,12 @@ import Error from "./components/error/Index";
 import ProductDetail, {
   loader as prodcutDetailLoader,
 } from "./components/productDetail";
-import Contact from "./page/contact";
-import News from "./page/news";
+import ContactPage from "./page/contact";
+import NewsPage from "./page/news";
 import NotFound from "./components/notFound";
-import Product from "./page/product";
+import ProductPage from "./page/product";
 import BasketPage from "./components/basketPage";
-import Checkout from "./components/checkout";
+import CheckoutPage from "./components/checkout";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,7 +25,7 @@ function App() {
         },
         {
           path: "/products",
-          element: <Product />,
+          element: <ProductPage />,
         },
         {
           path: "/product/:id",
@@ -35,7 +35,7 @@ function App() {
         },
         {
           path: "/contact",
-          element: <Contact />,
+          element: <ContactPage />,
         },
         {
           path: "/basket",
@@ -43,11 +43,11 @@ function App() {
         },
         {
           path: "/checkout",
-          element: <Checkout />,
+          element: <CheckoutPage />,
         },
         {
           path: "/news",
-          element: <News />,
+          element: <NewsPage />,
         },
       ],
     },

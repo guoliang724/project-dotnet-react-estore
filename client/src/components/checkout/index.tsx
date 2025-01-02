@@ -1,7 +1,7 @@
 import React from "react";
 
-function Checkout() {
+function CheckoutPage() {
   return <div>only for logged in user</div>;
 }
 
-export default Checkout;
+export default CheckoutPage;

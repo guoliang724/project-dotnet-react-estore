@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 import { Button, Card } from "antd";
 
-function Contact() {
+function ContactPage() {
   const [localErrors, setErrors] = useState([]);
 
   const handle404 = async () => {
@@ -61,4 +61,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactPage;

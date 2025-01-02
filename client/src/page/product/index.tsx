@@ -12,7 +12,7 @@ export interface IProps {
   effectType: EffectType;
 }
 
-const Product = () => {
+const ProductPage = () => {
   const navigation = useNavigation();
   const { products } = useAppSelector((state) => state.products);
 
@@ -26,4 +26,4 @@ const Product = () => {
   return <div className="w-4/5 mx-auto my-16">{RenderComponent}</div>;
 };
 
-export default Product;
+export default ProductPage;

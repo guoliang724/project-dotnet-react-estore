@@ -1,8 +1,12 @@
+using System.Text.Json;
 using API.Controllers;
 using API.Data;
 using API.Entities;
+using API.Extensions;
+using API.RequestHelpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace API
 {
@@ -19,11 +23,21 @@ namespace API
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> GetProducts()
+        public async Task<ActionResult<PagedList<Product>>> GetProducts([FromQuery] ProductParams productParams)
         {
+            var query = _storeContext.Products
+            .Sort(productParams.OrderBy)
+            .Search(productParams.Search)
+            .Filter(productParams.Brands, productParams.Types)
+            .AsQueryable();
 
-            return await _storeContext.Products.ToListAsync();
+            var products = await PagedList<Product>.ToPagedList(query, productParams.PageNumber, productParams.PageSize);
+
+            Response.AddPaginationHeader(products.MetaData);
+
+            return products;
         }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProductById(int id)
@@ -33,6 +47,20 @@ namespace API
 
             if (product == null) return NotFound(new ProblemDetails { Title = "No such product" });
             return product;
+        }
+
+
+        [HttpGet("filters")]
+        public async Task<IActionResult> GetFilters()
+        {
+            var brands = await _storeContext.Products.Select(p => p.Brand).Distinct().ToListAsync();
+            var types = await _storeContext.Products.Select(p => p.Type).Distinct().ToListAsync();
+
+            return Ok(new
+            {
+                Brands = brands,
+                Types = types
+            });
         }
     }
 }

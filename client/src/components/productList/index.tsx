@@ -1,31 +1,23 @@
 import ProductCard from "../productCard";
-import { EffectType, IProduct } from "../../types/product";
-import SortedBar from "../sortedBar";
+import { EffectType } from "../../types/product";
+
+import { useAppSelector } from "../../store/slice";
 
 export interface IProps {
-  products: IProduct[];
   effectType?: EffectType;
-  isShowSort?: boolean;
 }
 
-const ProductList = ({
-  products,
-  effectType = EffectType.FLIP,
-  isShowSort,
-}: IProps) => {
-  const ProductList = [...products].map((p, i) => (
-    <ProductCard key={i} product={p} effectType={effectType} delay={i} />
-  ));
+const ProductList = ({ effectType = EffectType.FLIP }: IProps) => {
+  const { unSortedProducts } = useAppSelector((state) => state.products);
+  const productList = unSortedProducts
+    .slice(0, 8)
+    .map((p, i) => (
+      <ProductCard key={i} product={p} effectType={effectType} delay={i} />
+    ));
 
   return (
     <div className="w-full">
-      {isShowSort && (
-        <div className="text-xl tracking-wide text-gray-600 mb-6 font-medium">
-          Featured Products
-        </div>
-      )}
-      {isShowSort && <SortedBar />}
-      <div className="grid grid-cols-4 gap-x-3 gap-y-8">{ProductList}</div>
+      <div className="grid grid-cols-4 gap-x-3 gap-y-8">{productList}</div>
     </div>
   );
 };

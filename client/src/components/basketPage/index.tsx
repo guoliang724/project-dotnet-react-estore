@@ -28,6 +28,7 @@ function BasketCard({ item, status }: { item: IBasketItem; status: string }) {
   };
 
   const handleAddItem = async (productId: number) => {
+    await sleep(1000);
     dispatch(addBasketItemAsync({ productId }));
   };
 

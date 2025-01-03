@@ -57,10 +57,10 @@ export default function Header() {
 
   const RightLinkComponent = (
     <>
-      <SearchOutlined
+      {/* <SearchOutlined
         className="cursor-pointer"
         onClick={handleOnOpenSearchDrawer}
-      />
+      /> */}
       <Badge count={itemNumber} size="small" color="geekblue">
         <ShoppingCartOutlined
           className={`cursor-pointer  text-base ${

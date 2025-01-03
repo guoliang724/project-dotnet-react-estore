@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse, HttpStatusCode } from "axios";
 import { message } from "antd";
+import { PagniatedRepsonse } from "../types/pagination";
 
 const http = axios.create({
   baseURL: "http://localhost:5107/",
@@ -13,6 +14,14 @@ export const sleep = (timer: number) =>
 http.interceptors.response.use(
   async (response: AxiosResponse) => {
     // await sleep(1000);
+
+    const pagination = response.headers["pagination"];
+    if (pagination) {
+      response.data = new PagniatedRepsonse(
+        response.data,
+        JSON.parse(pagination)
+      );
+    }
 
     return response;
   },

@@ -7,6 +7,7 @@ import {
 } from "../../store/slice/basketSlice";
 import { setIsBasketAnimationDone } from "../../store/slice/uiSlice";
 import { useAppDispatch, useAppSelector } from "../../store/slice";
+import { sleep } from "../../api/base";
 
 interface IProps {
   productId: number;
@@ -19,6 +20,8 @@ function AddSubButton({ productId }: IProps) {
   const quantity = basket?.items.find(
     (i) => i.productId === productId
   )?.quantity;
+
+  const [isLoad, setIsLoad] = React.useState(false);
 
   const ref = React.useRef<HTMLDivElement>(null);
   const [originX, setOriginX] = React.useState(0);
@@ -56,12 +59,14 @@ function AddSubButton({ productId }: IProps) {
   const handleAddtoBasket = async () => {
     dispatch(setIsBasketAnimationDone(false));
     setStart(true);
-
+    setIsLoad(true);
+    await sleep(1000);
     try {
       dispatch(addBasketItemAsync({ productId }));
     } catch (error) {
       console.log(error);
     } finally {
+      setIsLoad(false);
     }
   };
 
@@ -90,9 +95,9 @@ function AddSubButton({ productId }: IProps) {
           type="primary"
           shape="circle"
           onClick={handleAddtoBasket}
-          loading={status.includes(`pendingAddItem${productId}`)}
+          loading={isLoad}
         >
-          {!status.includes(`pendingAddItem${productId}`) && "+"}
+          {!isLoad && "+"}
         </Button>
 
         <div

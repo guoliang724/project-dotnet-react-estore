@@ -1,3 +1,4 @@
+import { MetaData } from "./pagination";
 export interface IProduct {
   id: number;
   name: string;
@@ -20,4 +21,19 @@ export interface IProductCard {
   product: IProduct;
   effectType?: EffectType;
   delay?: number;
+}
+
+export interface IProductParams {
+  orderBy: string;
+  search?: string;
+  brands?: string[];
+  types?: string[];
+  pageNumber: number;
+  pageSize: number;
+  count?: number;
+}
+
+export interface IProductResponse {
+  products: IProduct[];
+  metaData: MetaData;
 }

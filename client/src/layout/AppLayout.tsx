@@ -11,11 +11,17 @@ import { useAppDispatch, useAppSelector } from "../store/slice";
 import { getBasket } from "../api";
 import { setBasket } from "../store/slice/basketSlice";
 import SearchDrawer from "../components/searchDrawer/indext";
-import { fetchProductsAsync } from "../store/slice/productSlice";
+import {
+  fetchProductsAsync,
+  fetchUnsortedProductsAsync,
+  fethcFilters,
+} from "../store/slice/productSlice";
 
 const AppLayout = () => {
   const dispatch = useAppDispatch();
-  const { productLoaded } = useAppSelector((state) => state.products);
+  const { productLoaded, filterLoaded } = useAppSelector(
+    (state) => state.products
+  );
 
   useEffect(() => {
     const buyerId = Cookies.get("buyerId");
@@ -27,8 +33,15 @@ const AppLayout = () => {
   useEffect(() => {
     if (!productLoaded) {
       dispatch(fetchProductsAsync());
+      dispatch(fetchUnsortedProductsAsync());
     }
   }, [productLoaded, dispatch]);
+
+  useEffect(() => {
+    if (!filterLoaded) {
+      dispatch(fethcFilters());
+    }
+  }, [filterLoaded, dispatch]);
 
   return (
     <AutoScrollTop>

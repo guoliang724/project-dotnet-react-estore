@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { IBasketAction } from "../../types/basket";
-import { addToBasket, removeFromBasket } from "../../api/basket";
+import { addToBasket, getBasket, removeFromBasket } from "../../api/basket";
 
 interface BasketState {
   basket: IBasketAction | null;
@@ -27,6 +27,17 @@ export const removeBasketItemAsync = createAsyncThunk<
 >("basket/removeBasketItemAsync", async ({ productId, quantity }) => {
   await removeFromBasket(productId, quantity);
 });
+
+
+export const fetchBasketAsync = createAsyncThunk<IBasketAction>(
+  "basket/fetchBasket",
+  async(_,thunkAPI)=>{
+      const {data:baseket} = await getBasket();
+
+      return baseket;
+  }
+)
+
 
 export const basketSlice = createSlice({
   name: "basket",
@@ -69,6 +80,16 @@ export const basketSlice = createSlice({
       .addCase(removeBasketItemAsync.rejected, (state, action) => {
         state.status = "idle";
       });
+
+
+      builder.addCase(fetchBasketAsync.pending,(state,action)=>{
+             state.status = "pendingFetchBasket";
+      }).addCase(fetchBasketAsync.fulfilled,(state,action)=>{
+             state.basket = action.payload;
+             state.status = "idle";
+      }).addCase(fetchBasketAsync.rejected,(state,action)=>{
+            state.status = "idle";
+      })
   },
 });
 

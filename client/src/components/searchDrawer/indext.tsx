@@ -1,9 +1,10 @@
 import React from "react";
 import { Drawer } from "antd";
+import LoginForm from "../loginForm";
 
 import { useAppSelector, useAppDispatch } from "../../store/slice";
-import SearchBar from "./searchBar";
-import styles from "./index.module.less";
+
+import  "./index.module.less";
 import { setIsOpenSearchDrawer } from "../../store/slice/uiSlice";
 
 function SearchDrawer() {
@@ -20,9 +21,9 @@ function SearchDrawer() {
       placement="top"
       keyboard
       closeIcon={false}
-      height={110}
-      className={styles.searchDrawer}
-      children={<SearchBar onClose={handleClose}></SearchBar>}
+      height={150}
+ 
+      children={<LoginForm onClose={handleClose}></LoginForm>}
       onClose={handleClose}
     ></Drawer>
   );

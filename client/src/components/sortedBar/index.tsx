@@ -71,7 +71,7 @@ function SortedBar() {
     <div className="flex flex-row justify-start gap-4 font-Assitant mb-4">
       <div>Sorted By</div>
       <Dropdown
-        menu={{ items, onClick: handleClickPrice, selectable: true }}
+        menu={{ items,selectable: true, onClick: handleClickPrice }}
         trigger={["click"]}
       >
         <div className="flex flex-row justify-center items-baseline gap-1">

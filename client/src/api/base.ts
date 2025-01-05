@@ -1,6 +1,7 @@
-import axios, { AxiosError, AxiosResponse, HttpStatusCode } from "axios";
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, HttpStatusCode } from "axios";
 import { message } from "antd";
 import { PagniatedRepsonse } from "../types/pagination";
+import { store } from "../store/slice";
 
 const http = axios.create({
   baseURL: "http://localhost:5107/",
@@ -10,6 +11,14 @@ const http = axios.create({
 
 export const sleep = (timer: number) =>
   new Promise((resolve) => setTimeout(resolve, timer));
+
+http.interceptors.request.use((config)=>{
+  const token = store.getState().account.user?.token;
+  if(token) config.headers.Authorization = `Bearer ${token}`;
+
+  return config;
+})
+
 
 http.interceptors.response.use(
   async (response: AxiosResponse) => {
@@ -37,12 +46,14 @@ http.interceptors.response.use(
               modelStateErrors.push(data.errors[key]);
             }
           }
+          message.error(data.title);
           throw modelStateErrors.flat();
         }
         message.error(data.title);
         break;
       case HttpStatusCode.Unauthorized:
-        message.error(data.title);
+        if(typeof data === "object")  message.error(data.title);
+        else message.error(data);
         break;
       case HttpStatusCode.NotFound:
         message.error(data.title);

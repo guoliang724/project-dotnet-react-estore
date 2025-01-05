@@ -17,6 +17,7 @@ import {
   setIsOpenSearchDrawer,
 } from "../../store/slice/uiSlice";
 import { signOut } from "../../store/slice/accountSlice";
+import { clearBasket } from "../../store/slice/basketSlice";
 
 export default function Header() {
   const ref = React.useRef<HTMLDivElement>(null);
@@ -50,6 +51,7 @@ export default function Header() {
   const handleAvatarDrop :MenuProps["onClick"] = ({ key }) => {
       if(key==="logout") {
         dispatch(signOut())
+        dispatch(clearBasket())
         message.success("logOut success!")
       }
     };

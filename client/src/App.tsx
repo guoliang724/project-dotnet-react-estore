@@ -28,6 +28,10 @@ function App() {
           element: <ProductPage />,
         },
         {
+          path: "/checkout",
+          element: <CheckoutPage />,
+        },
+        {
           path: "/product/:id",
           loader: prodcutDetailLoader,
           errorElement: <Error />,

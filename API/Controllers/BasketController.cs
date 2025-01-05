@@ -12,21 +12,35 @@ namespace API.Controllers
 
         private readonly StoreContext _context;
 
-        private async Task<Basket> RetrieveBasket()
+        private async Task<Basket> RetrieveBasket(string buyerId)
         {
+            if (string.IsNullOrEmpty(buyerId))
+            {
+                Response.Cookies.Delete("buyerId");
+                return null;
+            }
             var basket = await _context.Baskets
            .Include(i => i.Items)
            .ThenInclude(p => p.Product)
-           .FirstOrDefaultAsync(x => x.BuyerId == Request.Cookies["buyerId"]);
+           .FirstOrDefaultAsync(x => x.BuyerId == buyerId);
             return basket;
+        }
+
+        private string GetBuyerId()
+        {
+            return User.Identity.Name ?? Request.Cookies["buyerId"];
         }
 
         private Basket CreateBasket()
         {
-            var buyerId = Guid.NewGuid().ToString();
-            var cookieOptions = new CookieOptions { IsEssential = true, Expires = DateTime.Now.AddDays(30) };
+            var buyerId = User.Identity?.Name;
+            if (string.IsNullOrEmpty(buyerId))
+            {
+                buyerId = Guid.NewGuid().ToString();
+                var cookieOptions = new CookieOptions { IsEssential = true, Expires = DateTime.Now.AddDays(30) };
+                Response.Cookies.Append("buyerId", buyerId, cookieOptions);
+            }
 
-            Response.Cookies.Append("buyerId", buyerId, cookieOptions);
             var basket = new Basket { BuyerId = buyerId };
             _context.Baskets.Add(basket);
             return basket;
@@ -63,7 +77,7 @@ namespace API.Controllers
         public async Task<ActionResult<BasketDto>> GetBasket()
         {
 
-            var basket = await RetrieveBasket();
+            var basket = await RetrieveBasket(GetBuyerId());
 
             if (basket == null) return NotFound();
 
@@ -75,7 +89,7 @@ namespace API.Controllers
         [HttpPost]  // api/basket?prodcutId=3&quantity=2
         public async Task<ActionResult<BasketDto>> AddItemtoBasket(int productId, int quantity)
         {
-            var basket = await RetrieveBasket();
+            var basket = await RetrieveBasket(GetBuyerId());
             if (basket == null)
             {
 
@@ -96,7 +110,7 @@ namespace API.Controllers
         [HttpDelete]
         public async Task<ActionResult> RemoveBasketItem(int ProductId, int quantity)
         {
-            var basket = await RetrieveBasket();
+            var basket = await RetrieveBasket(GetBuyerId());
             if (basket == null) return NotFound();
 
             basket.RemoveItem(ProductId, quantity);

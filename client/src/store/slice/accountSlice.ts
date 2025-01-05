@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { User } from "../../types/use";
+import { User } from "../../types/user";
 import { login, currentUser, register } from "../../api/acount";
 import { message } from "antd";
+import { setBasket } from "./basketSlice";
 
 
 interface AccountState {
@@ -18,9 +19,13 @@ export const signInUser = createAsyncThunk<User, User>(
   "account/signInUser",
   async (_, thunkAPI) => {
     try {
-      const { data } = await login(_);
-      if (data) message.success("login success!");
-      return data;
+      const {data:userDto} = await login(_);
+      const {basket,...user} = userDto
+
+      if(basket) thunkAPI.dispatch(setBasket(basket));
+
+      if (user) message.success("login success!");
+      return user;
     } catch (err) {
       return thunkAPI.rejectWithValue({ error: err });
     }
@@ -40,9 +45,13 @@ export const registerUser = createAsyncThunk<User,User>(
   "account/registerUser",
   async (_, thunkAPI) => {
     try {
-      const { data } = await register(_);
-      if (data) message.success("register success!");
-      return data;
+      const { data: userDto} = await register(_);
+      const {basket,...user} = userDto
+
+      if(basket) thunkAPI.dispatch(setBasket(basket));
+
+      if (user) message.success("register success!");
+      return user;
     } catch (err) {
       return thunkAPI.rejectWithValue({ error: err });
     }

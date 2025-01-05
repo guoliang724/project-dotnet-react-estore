@@ -22,10 +22,12 @@ const AppLayout = () => {
   const { productLoaded, filterLoaded } = useAppSelector(
     (state) => state.products
   );
+  const {user} = useAppSelector(state=>state.account)
 
   useEffect(() => {
+    if(user?.email)
     dispatch(fetchBasketAsync())
-  }, [dispatch]);
+  }, [dispatch,user?.email]);
 
   useEffect(() => {
     if (!productLoaded) {

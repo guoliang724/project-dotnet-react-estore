@@ -1,4 +1,4 @@
-import { User } from "../types/use";
+import { User } from "../types/user";
 import http from "./base";
 
 export const login = (value: any) => {

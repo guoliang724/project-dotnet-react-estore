@@ -50,7 +50,7 @@ namespace API.Controllers
         {
             var problemDetail = new ProblemDetails { Title = "you are forbidden" };
 
-            return Forbid("you are forbbiden");
+            return StatusCode(403,problemDetail);
         }
     }
 }

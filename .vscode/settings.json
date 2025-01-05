@@ -27,5 +27,10 @@
   "auto-close-tag.insertSpaceBeforeSelfClosingTag": true,
   "auto-close-tag.SublimeText3Mode": true,
   "csharpextensions.includeNamespaces": false,
-  "typescript.preferences.importModuleSpecifier": "relative"
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "marscode.codeCompletionPro": {
+    "enableCodeCompletionPro": true
+  },
+  "github.copilot.editor.enableAutoCompletions": false,
+  "marscode.chatLanguage": "en"
 }

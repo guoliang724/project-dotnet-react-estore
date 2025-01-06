@@ -1,15 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 using API.Entities;
+using API.Entities.OrderAggregate;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
 {
-  public class StoreContext : IdentityDbContext<User>
+  public class StoreContext : IdentityDbContext<User,Role,int>
   {
     public StoreContext(DbContextOptions options) : base(options)
     {
@@ -18,10 +16,18 @@ namespace API.Data
     public DbSet<Product> Products { get; set; }
     public DbSet<Basket> Baskets { get; set; }
 
+    public DbSet<Order> Orders {get;set;}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       base.OnModelCreating(modelBuilder);
+   
+      modelBuilder.Entity<User>()
+      .HasOne(a=>a.Address)
+      .WithOne()
+      .HasForeignKey<UserAddress>(a=>a.Id)
+      .OnDelete(DeleteBehavior.Cascade);
+ 
 
       modelBuilder.Entity<Product>().HasData(
           new Product
@@ -345,10 +351,12 @@ namespace API.Data
       );
 
 
-      modelBuilder.Entity<IdentityRole>().HasData(
-          new IdentityRole { Name = "Admin", NormalizedName = "ADMIN" },
-          new IdentityRole { Name = "Member", NormalizedName = "MEMBER" }
+      modelBuilder.Entity<Role>().HasData(
+          new Role { Id =1, Name = "Admin", NormalizedName = "ADMIN" },
+          new Role { Id =2,  Name = "Member", NormalizedName = "MEMBER" }
       );
+    
+    
     }
   }
 }

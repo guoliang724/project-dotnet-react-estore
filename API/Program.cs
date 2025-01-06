@@ -53,7 +53,7 @@ builder.Services.AddIdentityCore<User>(option =>
 {
     option.Password.RequireNonAlphanumeric = false;
     option.User.RequireUniqueEmail = true;
-}).AddRoles<IdentityRole>().AddEntityFrameworkStores<StoreContext>();
+}).AddRoles<Role>().AddEntityFrameworkStores<StoreContext>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Card, Divider } from "antd";
+import { Button, Card, Divider, Empty } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 
 import { useAppDispatch, useAppSelector } from "../../store/slice";
@@ -10,6 +10,7 @@ import {
 } from "../../store/slice/basketSlice";
 import { IBasketItem } from "../../types/basket";
 import { sleep } from "../../api/base";
+import OrderSummary from "../orderSummary";
 
 const { Meta } = Card;
 
@@ -79,21 +80,23 @@ function BasketPage() {
   const { basket, status } = useAppSelector((state) => state.basket);
 
   if (!basket)
-    return <div className="w-2/3 mx-auto">Your basket is empty!</div>;
+    return <div className="w-2/3 h-full mx-auto flex justify-center items-center">
+      <Empty ></Empty>
+    </div>;
 
   const BasketItemComp = basket.items.map((item, index) => {
     return <BasketCard key={index} item={item} status={status} />;
   });
 
   return (
-    <div className="w-2/3 mx-auto flex flex-col justify-center items-start gap-5">
-      <div className="text-xl font-Rubik font-bold">
+    <div className="w-2/3 my-11 mx-auto flex flex-col justify-center items-start gap-5">
+      <div className="text-xl font-Rubik font-bold pb-3">
         Your Order Information:
       </div>
 
       <div className="grid grid-cols-4 gap-4">{BasketItemComp}</div>
       <Divider />
-      <div className="self-end">ttol;</div>
+      <div className="self-end"><OrderSummary/></div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import {
   LoginOutlined,
   ProfileOutlined,
   ShoppingCartOutlined,
-  SettingOutlined,
+  TruckOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
 import { Avatar, Badge, Dropdown, message } from "antd";
@@ -54,6 +54,10 @@ export default function Header() {
         dispatch(clearBasket())
         message.success("logOut success!")
       }
+
+      if(key==="orders") {
+        navigate("/orders")
+      }
     };
 
   const rightLinks = [
@@ -76,10 +80,9 @@ export default function Header() {
       icon: <ProfileOutlined />,
     },
     {
-      key: '2',
-      label: <div>Settings</div>,
-      icon: <SettingOutlined />,
-      disabled: true,
+      key: 'orders',
+      label: <div>My Orders</div>,
+      icon: <TruckOutlined />,
     },
     {
       key: 'logout',

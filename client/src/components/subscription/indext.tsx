@@ -49,7 +49,7 @@ const Subscription = () => {
   return (
     <>
       {contextHolder}
-      <div className="border-y divide-slate-300 mt-16  py-8">
+      <div className="border-y divide-slate-300 py-8">
         <div className="w-4/5 mx-auto">
           <div className="text-lg text-gray-600 mb-6 tracking-wide font-medium">
             Subscribe to our emails

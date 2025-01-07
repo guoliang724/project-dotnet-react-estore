@@ -12,6 +12,7 @@ import NotFound from "./components/notFound";
 import ProductPage from "./page/product";
 import BasketPage from "./components/basketPage";
 import CheckoutPage from "./components/checkout";
+import OrderPage from "./components/orderPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -44,6 +45,10 @@ function App() {
         {
           path: "/basket",
           element: <BasketPage />,
+        },
+        {
+          path:"/orders",
+          element:<OrderPage></OrderPage>
         },
         {
           path: "/checkout",

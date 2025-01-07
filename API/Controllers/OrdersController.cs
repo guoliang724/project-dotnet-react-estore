@@ -64,7 +64,7 @@ namespace API.Controllers
 
             var subtotal = items.Sum(item=>item.Price * item.Quantity);
 
-            var deliveryFee = subtotal > 10000 ? 0 :500;
+            var deliveryFee = subtotal > 100 ? 0 :5;
 
             var order = new Order {
                 OrderItems = items,
@@ -77,8 +77,10 @@ namespace API.Controllers
             _storeContext.Baskets.Remove(basket);
 
             if(orderDto.SaveAddress) {
-                var user = await _storeContext.Users.FirstOrDefaultAsync(x=>x.UserName == User.Identity.Name);
-                user.Address = new UserAddress
+                var user = await _storeContext.Users
+                .Include(a=>a.Address)
+                .FirstOrDefaultAsync(x=>x.UserName == User.Identity.Name);
+                var address  = new UserAddress
                 {
                     FullName = orderDto.ShippingAddress.FullName,
                     Address1 = orderDto.ShippingAddress.Address1,
@@ -88,6 +90,7 @@ namespace API.Controllers
                     Zip = orderDto.ShippingAddress.Zip,
                     Country = orderDto.ShippingAddress.Country,
                 };
+                user.Address = address;
                 _storeContext.Update(user);
             }
 

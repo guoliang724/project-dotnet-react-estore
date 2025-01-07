@@ -12,3 +12,7 @@ export const register = (values: any) => {
 export const currentUser = () => {
   return http.post<User>("/api/account/currentUser");
 };
+
+export const getSavedAddress = ()=>{
+  return http.get("/api/account/savedAddress")
+}

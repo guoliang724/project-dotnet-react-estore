@@ -35,8 +35,7 @@ function PaymentForm({onNext,onPrevious,fields,isSavedAddress,onOrdernumber}:IPr
   }, []);
 
   const handleSubmit: FormProps<FieldType>['onFinish'] = async (values)=>{
-     console.log("values",values)
-     console.log("+++++fileds",fields);
+  
 
      setLoading(true)
      let shippingAddress:any = {}
@@ -47,14 +46,14 @@ function PaymentForm({onNext,onPrevious,fields,isSavedAddress,onOrdernumber}:IPr
         }
      })
 
-     console.log("+++++shippingAddress",shippingAddress)
+  
      
      const {data:numer} = await createOrder({saveAddress:isSavedAddress,shippingAddress})
 
      if(numer){
       onOrdernumber(numer);
       dispatch(clearBasket());
-      console.log("+++++orderNumber",numer)
+
  
       setLoading(false);
       onNext();

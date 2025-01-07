@@ -103,24 +103,74 @@ namespace API.Data
           new Product
           {
             Id = 3,
-            Name = "Microfiber cleaning cloths",
-            Description = "Microfiber cleaning cloths, reusable and effective on all surfaces.",
+            Name = "Microfiber cleaning cloths, reusable and effective on all surfaces.",
+            Description = @"<div class='product-description'>
+  <h2>Microfiber Cleaning Cloths - Reusable and Effective</h2>
+  <p>
+    Say goodbye to dirt and streaks with our premium 
+    <strong>Microfiber Cleaning Cloths</strong>. Designed to be 
+    <em>gentle yet powerful</em>, these cloths are perfect for cleaning 
+    <strong>all types of surfaces</strong>, from glass to wood and everything in between.
+  </p>
+  <ul>
+    <li><strong>Reusable and Durable:</strong> Built to last, these cloths can be washed and reused, reducing waste.</li>
+    <li><strong>Effective on All Surfaces:</strong> Safely cleans glass, mirrors, countertops, stainless steel, and more.</li>
+    <li><strong>Lint-Free and Scratch-Free:</strong> Leaves surfaces spotless without causing damage.</li>
+    <li><strong>Eco-Friendly Choice:</strong> A sustainable alternative to disposable cleaning supplies.</li>
+  </ul>
+  <p>
+    Upgrade your cleaning routine with these versatile and environmentally-friendly 
+    <strong>microfiber cloths</strong>. Perfect for homes, offices, and cars, they are 
+    the ultimate cleaning companion.
+  </p>
+</div>",
             Price = 18.99,
-            PictureUrl = "imgs/products/product3.jpg",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product3.webp",
             Brand = "eSayClean",
             Type = "Cloths",
             QuantityInStock = 18,
+             DemoImages = new(){
+                        "https://blobstorage1114.blob.core.windows.net/images/product-3-1.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-3-2.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-3-3.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-3-4.webp",
+                  }
           },
           new Product
           {
             Id = 4,
-            Name = "Net Core Super cleaner",
-            Description = "Concentrated all-purpose cleaner, eco-friendly and powerful against grime.",
+            Name = "Concentrated all-purpose cleaner, eco-friendly and powerful against grime.",
+            Description =@"<div class='product-description'>
+  <h2>Microfiber Cleaning Cloths - Reusable and Effective</h2>
+  <p>
+    Say goodbye to dirt and streaks with our premium 
+    <strong>Microfiber Cleaning Cloths</strong>. Designed to be 
+    <em>gentle yet powerful</em>, these cloths are perfect for cleaning 
+    <strong>all types of surfaces</strong>, from glass to wood and everything in between.
+  </p>
+  <ul>
+    <li><strong>Reusable and Durable:</strong> Built to last, these cloths can be washed and reused, reducing waste.</li>
+    <li><strong>Effective on All Surfaces:</strong> Safely cleans glass, mirrors, countertops, stainless steel, and more.</li>
+    <li><strong>Lint-Free and Scratch-Free:</strong> Leaves surfaces spotless without causing damage.</li>
+    <li><strong>Eco-Friendly Choice:</strong> A sustainable alternative to disposable cleaning supplies.</li>
+  </ul>
+  <p>
+    Upgrade your cleaning routine with these versatile and environmentally-friendly 
+    <strong>microfiber cloths</strong>. Perfect for homes, offices, and cars, they are 
+    the ultimate cleaning companion.
+  </p>
+</div>",
             Price = 14.99,
-            PictureUrl = "imgs/products/product4.jpg",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product4.webp",
             Brand = "eSayClean",
             Type = "Cleaner",
             QuantityInStock = 19,
+            DemoImages = new(){
+                        "https://blobstorage1114.blob.core.windows.net/images/product-4-1.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-4-2.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-4-3.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-4-4.webp",
+                  }
           },
           new Product
           {

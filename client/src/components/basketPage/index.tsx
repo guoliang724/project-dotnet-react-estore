@@ -79,7 +79,7 @@ function BasketCard({ item, status }: { item: IBasketItem; status: string }) {
 function BasketPage() {
   const { basket, status } = useAppSelector((state) => state.basket);
 
-  if (!basket)
+  if (!basket || basket.items.length === 0)
     return <div className="w-2/3 h-full mx-auto flex justify-center items-center">
       <Empty ></Empty>
     </div>;

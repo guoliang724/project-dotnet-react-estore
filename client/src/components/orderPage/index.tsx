@@ -55,7 +55,7 @@ function OrderPage() {
 
   const LableCom = (order:Order)=> <Flex gap="4px 0" wrap>
     <Tag color="magenta">Order Number: {order.id}</Tag>
-    <Tag color="red">Total: {order.total}</Tag>
+    <Tag color="red">Total: {order.total.toFixed(2)}</Tag>
     <Tag color="volcano">Order Date: {order.orderDate.split('T')[0]}</Tag>
     <Tag color="orange">Order Status: {order.orderStatus}</Tag>
     <Tag color="gold">Order's Owner: {order.buyerId}</Tag>
@@ -114,7 +114,7 @@ const ShippingAddressInfo = ()=> <div className="flex flex-row justify-center it
 }
 
   const items: CollapseProps["items"] = orders
-    ? orders.map((order, index) => {
+    ? [...orders].reverse().map((order, index) => {
         return {
           key: index,
           label:LableCom(order),
@@ -131,7 +131,7 @@ const ShippingAddressInfo = ()=> <div className="flex flex-row justify-center it
   const CollapseCom = () => (
     <Collapse
       items={items}
-      defaultActiveKey={["1"]}
+      defaultActiveKey={["0"]}
       onChange={onChange}
     ></Collapse>
   );

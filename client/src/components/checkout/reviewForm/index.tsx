@@ -74,13 +74,13 @@ function ReviewForm({ onNext, onPrevious }: IProps) {
 
   const total = basketData.reduce((ac, cu) => cu.total + ac, 0);
 
-  const deliveryFee = total > 100 ? 5.5 : 0;
+  const deliveryFee = total > 100 ? 0 : 5;
 
   const footerItems: DescriptionsProps["items"] = [
     {
       key: "1",
       label: "Subtotal",
-      children: total,
+      children: Number(total.toFixed(2)),
       span: 1,
     },
     {
@@ -92,7 +92,7 @@ function ReviewForm({ onNext, onPrevious }: IProps) {
     {
       key: "3",
       label: "Total",
-      children: total - deliveryFee,
+      children: Number((total + deliveryFee).toFixed(2)),
       span: 1,
     },
   ];

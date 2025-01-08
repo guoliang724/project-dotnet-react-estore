@@ -82,7 +82,7 @@ function WorkSection() {
             type="button"
             className="mt-6 text-gray-900  border border-gray-300 focus:border-gray-500 hover:border-gray-500  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
             onClick={() => {
-              navigate(`/product/{$productThree.id}`);
+              navigate(`/product/${productThree.id}`);
             }}
           >
             Read More

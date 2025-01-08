@@ -1,4 +1,9 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, HttpStatusCode } from "axios";
+import axios, {
+  AxiosError,
+  AxiosRequestConfig,
+  AxiosResponse,
+  HttpStatusCode,
+} from "axios";
 import { message } from "antd";
 import { PagniatedRepsonse } from "../types/pagination";
 import { store } from "../store/slice";
@@ -12,13 +17,12 @@ const http = axios.create({
 export const sleep = (timer: number) =>
   new Promise((resolve) => setTimeout(resolve, timer));
 
-http.interceptors.request.use((config)=>{
+http.interceptors.request.use((config) => {
   const token = store.getState().account.user?.token;
-  if(token) config.headers.Authorization = `Bearer ${token}`;
+  if (token) config.headers.Authorization = `Bearer ${token}`;
 
   return config;
-})
-
+});
 
 http.interceptors.response.use(
   async (response: AxiosResponse) => {
@@ -35,7 +39,7 @@ http.interceptors.response.use(
     return response;
   },
   (error: AxiosError) => {
-    const { data, status } = error.response as AxiosResponse;
+    const { data, status, statusText } = error.response as AxiosResponse;
 
     switch (status) {
       case HttpStatusCode.BadRequest:
@@ -52,8 +56,13 @@ http.interceptors.response.use(
         message.error(data.title);
         break;
       case HttpStatusCode.Unauthorized:
-        if(typeof data === "object")  message.error(data.title);
-        else message.error(data);
+        const errorText = data.title
+          ? data.title
+          : statusText
+          ? statusText
+          : data;
+        message.error(errorText);
+
         break;
       case HttpStatusCode.NotFound:
         message.error(data.title);

@@ -1,6 +1,7 @@
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -46,26 +47,7 @@ namespace API.Controllers
             return basket;
         }
 
-        private BasketDto MapBasketToDto(Basket basket)
-        {
-            return new BasketDto
-            {
-                Id = basket.Id,
-                BuyerId = basket.BuyerId,
-                Items = basket.Items.Select(x => new BasketItemDto
-                {
-                    ProductId = x.
-                    ProductId,
-                    Name = x.Product.Name,
-                    Price = x.Product.Price,
-                    PictureUrl = x.Product.PictureUrl,
-                    Type = x.Product.Type,
-                    Brand = x.Product.Brand,
-                    Quantity = x.Quantity,
-                }).ToList()
-
-            };
-        }
+       
 
         public BasketController(StoreContext context)
         {
@@ -81,7 +63,7 @@ namespace API.Controllers
 
             if (basket == null) return NotFound();
 
-            return MapBasketToDto(basket);
+            return basket.MapBasketToDto();
         }
 
 
@@ -102,7 +84,7 @@ namespace API.Controllers
 
             var result = await _context.SaveChangesAsync() > 0;
 
-            if (result) return CreatedAtRoute("GetBasket", MapBasketToDto(basket));
+            if (result) return CreatedAtRoute("GetBasket", basket.MapBasketToDto());
             return BadRequest(new ProblemDetails { Title = "Problem saving item to basket" });
         }
 

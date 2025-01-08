@@ -29,7 +29,7 @@ function OrderPage() {
   const { isAuth } = useRequireAuth();
 
   const onChange = (key: string | string[]) => {
-    console.log(key);
+   
   };
  
   useEffect(() => {

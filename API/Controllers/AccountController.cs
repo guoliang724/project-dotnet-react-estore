@@ -1,6 +1,7 @@
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
 using API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -26,14 +27,9 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             var user = await _userManager.FindByNameAsync(loginDto.Username);
-
-            if (user == null) return Unauthorized("Invalid username");
-
-
-            var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
-
-            if (!result) return Unauthorized();
-
+            if (user == null || !await _userManager.CheckPasswordAsync(user, loginDto.Password))
+            return Unauthorized();
+            
             var userBasket = await RetrieveBasket(loginDto.Username);
             var nonBasket = await RetrieveBasket(Request.Cookies["buyerId"]);
 
@@ -44,13 +40,13 @@ namespace API.Controllers
                 await _context.SaveChangesAsync();
             }
             
-            var basket = nonBasket != null ?nonBasket:userBasket;
+            var basket = nonBasket != null ?nonBasket.MapBasketToDto(): userBasket != null ? userBasket.MapBasketToDto():null;
 
             return new UserDto
             {
                 Token = await _tokenService.GenerateToken(user),
                 Email = user.Email,
-                basketDto = MapBasketToDto(basket),
+                basketDto = basket
             };
         }
 
@@ -95,7 +91,7 @@ namespace API.Controllers
             {
                 Token = await _tokenService.GenerateToken(user),
                 Email = user.Email,
-                basketDto = MapBasketToDto(basket),
+                basketDto = basket.MapBasketToDto(),
             };
 
         }
@@ -134,27 +130,6 @@ namespace API.Controllers
            .ThenInclude(p => p.Product)
            .FirstOrDefaultAsync(x => x.BuyerId == buyerId);
             return basket;
-        }
-
-         private BasketDto MapBasketToDto(Basket basket)
-        {
-            return new BasketDto
-            {
-                Id = basket.Id,
-                BuyerId = basket.BuyerId,
-                Items = basket.Items.Select(x => new BasketItemDto
-                {
-                    ProductId = x.
-                    ProductId,
-                    Name = x.Product.Name,
-                    Price = x.Product.Price,
-                    PictureUrl = x.Product.PictureUrl,
-                    Type = x.Product.Type,
-                    Brand = x.Product.Brand,
-                    Quantity = x.Quantity,
-                }).ToList()
-
-            };
         }
 
 

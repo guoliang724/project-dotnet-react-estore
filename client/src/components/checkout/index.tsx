@@ -8,6 +8,7 @@ import ReviewForm from "./reviewForm";
 import PaymentForm from "./paymentForm";
 import DoneForm from "./doneForm";
 import {  useNavigate } from "react-router-dom";
+import { PaymentResult } from "../../types/payment";
 
 export interface FieldData {
   name: string | number | (string | number)[];
@@ -27,6 +28,7 @@ function CheckoutPage() {
   const [fields, setFields] = useState<FieldData[]>([]);
   const [isSavedAddress,setIsSaveAddress] = useState(false);
   const [orderNumber,setOrderNumber] = useState(0);
+  const [paymentResult,setPaymentResult] = useState<PaymentResult>();
 
 
 
@@ -41,8 +43,8 @@ function CheckoutPage() {
   const steps = [
     <ShippingForm saveAddress={setIsSaveAddress} current={current} fields={fields} onNext={next} onChange={setFields}></ShippingForm>,
     <ReviewForm current={current} onNext={next} onPrevious={prev}></ReviewForm>,
-    <PaymentForm current={current} onOrdernumber={setOrderNumber} onNext={next} onPrevious={prev} fields={fields} isSavedAddress={isSavedAddress}></PaymentForm>,
-    <DoneForm orderNumber={orderNumber}></DoneForm>,
+    <PaymentForm onPayMentSuccess={setPaymentResult} current={current} onOrdernumber={setOrderNumber} onNext={next} onPrevious={prev} fields={fields} isSavedAddress={isSavedAddress} ></PaymentForm>,
+    <DoneForm onPrevious={prev} paymentResult={paymentResult} orderNumber={orderNumber}></DoneForm>,
   ]
 
   const items =[

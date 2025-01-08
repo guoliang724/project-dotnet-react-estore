@@ -10,7 +10,7 @@ function OrderSummary() {
   const subtotal = Number(basket?.items.reduce((ac,cu)=>(cu.quantity * cu.price) + ac,0).toFixed(2));
   const disCount = Number((-0).toFixed(2));
   const deliveryFee = Number((+subtotal! > 100?0:5).toFixed(2));
-  const totalCost = subtotal! + disCount + deliveryFee;
+  const totalCost = Number((subtotal! + disCount + deliveryFee).toFixed(2));
 
   const titleComponent = <div className='flex flex-col'>
     <div className='font-Rubik'>Order Summary</div>

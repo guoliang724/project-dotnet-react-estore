@@ -11,7 +11,7 @@ import NewsPage from "./page/news";
 import NotFound from "./components/notFound";
 import ProductPage from "./page/product";
 import BasketPage from "./components/basketPage";
-import CheckoutPage from "./components/checkout";
+import CheckoutWrapper from "./components/checkout/checkoutWrapper";
 import OrderPage from "./components/orderPage";
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
         },
         {
           path: "/checkout",
-          element: <CheckoutPage />,
+          element: <CheckoutWrapper />,
         },
         {
           path: "/product/:id",
@@ -49,10 +49,6 @@ function App() {
         {
           path:"/orders",
           element:<OrderPage></OrderPage>
-        },
-        {
-          path: "/checkout",
-          element: <CheckoutPage />,
         },
         {
           path: "/news",

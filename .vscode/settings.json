@@ -28,9 +28,16 @@
   "auto-close-tag.SublimeText3Mode": true,
   "csharpextensions.includeNamespaces": false,
   "typescript.preferences.importModuleSpecifier": "relative",
+  "github.copilot.editor.enableAutoCompletions": false,
   "marscode.codeCompletionPro": {
     "enableCodeCompletionPro": true
   },
-  "github.copilot.editor.enableAutoCompletions": false,
-  "marscode.chatLanguage": "en"
+  "marscode.enableInlineCommand": true,
+  "marscode.enableCodelens": {
+    "enableInlineDocumentation": true,
+    "enableInlineUnitTest": true,
+    "enableInlineExplain": true
+  },
+  "merge-conflict.autoNavigateNextConflict.enabled": false,
+  
 }

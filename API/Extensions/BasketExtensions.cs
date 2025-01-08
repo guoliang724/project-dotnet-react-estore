@@ -4,16 +4,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Extensions;
 
-    public static class BasketExtensions
-    {
-        public static BasketDto MapBasketToDto(this Basket basket)
+public static class BasketExtensions
+{
+    public static BasketDto MapBasketToDto(this Basket basket)
     {
         return new BasketDto
         {
             Id = basket.Id,
             BuyerId = basket.BuyerId,
-            // PaymentIntentId = basket.PaymentIntentId,
-            // ClientSecret = basket.ClientSecret,
+            PaymentIntentId = basket.PaymentIntentId,
+            ClientSecret = basket.ClientSecret,
             Items = basket.Items.Select(item => new BasketItemDto
             {
                 ProductId = item.ProductId,
@@ -34,4 +34,4 @@ namespace API.Extensions;
             .ThenInclude(p => p.Product)
             .Where(b => b.BuyerId == buyerId);
     }
-    }
+}

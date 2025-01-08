@@ -54,12 +54,13 @@ function App() {
           path: "/news",
           element: <NewsPage />,
         },
+        {
+          path: "*",
+          element: <NotFound />,
+        },
       ],
     },
-    {
-      path: "*",
-      element: <NotFound />,
-    },
+  
   ]);
 
   return <RouterProvider router={router} />;

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import {sentence,article} from "txtgen"
 
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -202,20 +203,11 @@ const ProductDetail = () => {
               className="flex flex-col gap-3"
               dangerouslySetInnerHTML={{ __html: description }}
             />
-            About this item Elevate your bathroom or spa experience with our
-            luxuriously soft white rolled towels. Made from premium-quality
-            cotton, these towels are ultra-absorbent, durable, and gentle on the
-            skin, making them perfect for everyday use or special occasions.
-            Each towel is elegantly rolled and displayed on a stylish macrame
-            swing, showcasing a clean, minimalist aesthetic that blends
-            effortlessly into any décor. Whether you're upgrading your bathroom
-            essentials or looking for a thoughtful gift, these towels combine
-            practicality with timeless sophistication. Material: 100% Premium
-            Cotton Features: Highly absorbent, quick-drying, and soft to the
-            touch Ideal For: Bathrooms, spas, or as decorative accents Care
-            Instructions: Machine washable, tumble dry on low Bring a touch of
-            elegance and comfort to your home with these versatile and
-            beautifully designed towels.
+            <div className="flex flex-col gap-2">
+                <div className="text-base font-bold">About lorem:</div>
+                <div>{article(1)}</div>
+            </div>
+         
           </div>
         </div>
       </div>

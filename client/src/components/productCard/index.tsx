@@ -59,7 +59,7 @@ export default function ProductCard({
         );
     }
   };
-  const delySec = effectType === EffectType.ZOOM ? (delay ?? 1) * 250 : 1000;
+  const delySec = effectType === EffectType.ZOOM ? (delay ?? 1) * 250 : 0;
 
   return (
     <div

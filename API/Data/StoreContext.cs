@@ -143,6 +143,7 @@ namespace API.Data
           {
             Id = 4,
             Name = "Concentrated all-purpose cleaner, eco-friendly and powerful against grime.",
+            literalDescription = "Say goodbye to dirt and streaks with our premium Microfiber Cleaning Cloths. Designed to be gentle yet powerful, these cloths are perfect for cleaning all types of surfaces, from glass to wood and everything in between.",
             Description = @"<div class='product-description'>
   <h2>Microfiber Cleaning Cloths - Reusable and Effective</h2>
   <p>
@@ -178,7 +179,8 @@ namespace API.Data
           new Product
           {
             Id = 5,
-            Name = "Natural wood polish restores shine without harmful chemicals.Combining functionality and sustainability, this collection is perfect for a mindful, environmentally conscious lifestyle",
+            Name = "Natural wood polish restores shine without harmful chemicals",
+            literalDescription = "Natural wood polish restores shine without harmful chemicals.Combining functionality and sustainability, this collection is perfect for a mindful, environmentally conscious lifestyle",
             Description = @"<div class='product-description'>
   <h2>Natural and Sustainable Beauty Essentials</h2>
   <p>
@@ -213,7 +215,7 @@ namespace API.Data
           new Product
           {
             Id = 6,
-            Name = "This tea set combines practicality with a whimsical design that will delight anyone who sees it. Whether you're hosting guests or enjoying a quiet tea moment, this set will bring joy and style to your experience.",
+            Name = "Teapot with a sturdy handle and whimsical design",
             literalDescription = "Combining effective antibacterial action with the nourishing benefits of aloe vera, this hand sanitizer is a must-have for maintaining hygiene without compromising on skin care. Ideal for everyday use and suitable for all skin types.",
             Description = @"<div class='product-description'>
   <h1>Whimsical Cat-Themed Ceramic Tea Set</h1>

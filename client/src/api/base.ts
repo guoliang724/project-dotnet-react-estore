@@ -65,7 +65,7 @@ http.interceptors.response.use(
 
         break;
       case HttpStatusCode.NotFound:
-        message.error(data.title);
+        // message.error(data.title);
         break;
       case HttpStatusCode.InternalServerError:
         message.error(data.title);

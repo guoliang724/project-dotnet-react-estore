@@ -45,7 +45,7 @@ function DoneForm({ orderNumber, paymentResult,onPrevious }: IProps) {
             title="Successfully Purchased products on eSayClean!"
             bordered
             items={items}
-            column={4}
+            column={3}
           />
         }
         extra={[

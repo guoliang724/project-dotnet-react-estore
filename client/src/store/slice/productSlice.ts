@@ -32,7 +32,7 @@ export const fetchUnsortedProductsAsync = createAsyncThunk<
     const params = getAxiosParams({
       pageNumber: 1,
       pageSize: 100,
-      orderBy: "name",
+      orderBy: "Id",
     });
     const { products } = await getProducts(params);
     return products;

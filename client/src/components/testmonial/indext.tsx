@@ -1,10 +1,9 @@
-import image from "../../imgs/testmonial.webp";
 
 const Testimonial = () => {
   return (
     <div className="w-4/5 mx-auto mt-16 bg-gray-100 grid grid-cols-10  shadow-lg rounded-sm">
       <div className="col-span-6 py-1 ps-1">
-        <img src={image} className=""></img>
+        <img src="https://blobstorage1114.blob.core.windows.net/images/testmonial.webp" className=""></img>
       </div>
       <div className="col-span-4 flex flex-col">
         <div className="h-1/4"></div>

@@ -5,42 +5,39 @@ import zipWorkOne from "../../imgs/workin/work1_zon.webp";
 import zipWorkTwo from "../../imgs/workin/work2_zon.webp";
 import zipWorkThree from "../../imgs/workin/work3_zon.webp";
 import { useState } from "react";
+import { useAppSelector } from "../../store/slice";
 
-enum IMAGE_ORDER {
-  ONE,
-  TWO,
-  THREE,
-}
+
 
 function WorkSection() {
-  const [workOne, setWorkOne] = useState(zipWorkOne);
-  const [workTwo, setWorkTwo] = useState(zipWorkTwo);
-  const [workThree, setWorkThree] = useState(zipWorkThree);
-  const handleOnLoad = (order: IMAGE_ORDER) => {
-    if (order === IMAGE_ORDER.ONE) {
-      setWorkOne(_workone);
-    } else if (order === IMAGE_ORDER.TWO) {
-      setWorkTwo(_worktwo);
-    } else {
-      setWorkThree(_workthree);
-    }
-  };
+  const { unSortedProducts } = useAppSelector(state=>state.products)
+
+  console.log("+++products",unSortedProducts)
+  const prodcutone = unSortedProducts.filter(i=>i.id === 5)[0]
+  const prodcuttwo = unSortedProducts.filter(i=>i.id === 6)[0]
+  const productThree = unSortedProducts.filter(i=>i.id === 3)[0]
+
+
+
+  if(unSortedProducts.length === 0){
+    return null
+  }
+
+
   return (
     <div className="w-4/5 mx-auto my-16 bg-[#fff4e6]">
       <div className="grid grid-cols-2 gap-x-4">
         <div className="flex justify-end">
           <img
-            src={workThree}
+            src={prodcutone.pictureUrl}
             className="h-auto object-cover aspect-square "
             alt="image of a fancy brush"
-            onLoad={() => handleOnLoad(IMAGE_ORDER.THREE)}
           ></img>
         </div>
         <div className="flex justify-center items-start flex-col px-5">
-          <h2 className="font-bold text-2xl tracking-normal">Comet 2001</h2>
-          <div className="mt-6 text-sm tracking-wide">
-            Soft-bristled makeup brush for flawless foundation application.Nylon
-            hairbrush promotes healthy, shiny hair with static control.
+          <h2 className="font-bold text-2xl tracking-normal">{prodcutone.name}</h2>
+          <div className="mt-6 text-sm tracking-wide line-clamp-2">
+             {prodcutone.literalDescription}
           </div>
           <button
             type="button"
@@ -50,10 +47,9 @@ function WorkSection() {
           </button>
         </div>
         <div className="flex justify-center items-start flex-col px-5">
-          <h2 className="font-bold text-2xl tracking-normal">Broom Star</h2>
-          <div className="mt-6 tracking-wide text-sm">
-            Bristle toothbrush with compact head for thorough cleaning.Stiff
-            scrub brush for cleaning dishes and pots effortlessly.
+          <h2 className="font-bold text-2xl tracking-normal">{prodcutone.name}</h2>
+          <div className="mt-6 text-sm tracking-wide line-clamp-2">
+             {prodcutone.literalDescription}
           </div>
           <button
             type="button"
@@ -64,26 +60,23 @@ function WorkSection() {
         </div>
         <div className="flex justify-start">
           <img
-            src={workTwo}
+            src={prodcuttwo.pictureUrl}
             className="h-auto object-cover aspect-square "
             alt="image of a fancy brush"
-            onLoad={() => handleOnLoad(IMAGE_ORDER.TWO)}
           ></img>
         </div>
 
         <div className="flex justify-end">
           <img
-            src={workOne}
+            src={productThree.pictureUrl}
             className="h-auto object-cover aspect-square "
             alt="image of a fancy brush"
-            onLoad={() => handleOnLoad(IMAGE_ORDER.ONE)}
           ></img>
         </div>
         <div className="flex justify-center items-start flex-col px-5">
-          <h2 className="font-bold text-2xl tracking-normal">Aquarius 2003</h2>
-          <div className="mt-6 tracking-wide text-sm">
-            Detail paintbrush with fine tip for precise artwork.Long-handled
-            back brush for easy reach and exfoliation.
+          <h2 className="font-bold text-2xl tracking-normal">{prodcutone.name}3</h2>
+          <div className="mt-6 text-sm tracking-wide line-clamp-2">
+             {prodcutone.literalDescription}
           </div>
           <button
             type="button"

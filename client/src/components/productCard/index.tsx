@@ -71,7 +71,7 @@ export default function ProductCard({
         <div className="overflow-hidden">{ImageComponent()}</div>
 
         <span
-          className="mt-3 mb-2 text-sm hover:underline"
+          className="mt-3 mb-2 text-sm line-clamp-2 hover:underline"
           onClick={productDetail}
         >
           {name}

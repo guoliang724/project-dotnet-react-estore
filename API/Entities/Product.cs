@@ -22,5 +22,7 @@ namespace API.Entities
         public int QuantityInStock { get; set; }
 
         public List<string> DemoImages { get; set; }
+
+        public string literalDescription {get;set;}
     }
 }

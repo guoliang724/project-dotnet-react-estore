@@ -1,5 +1,4 @@
 import React from "react";
-import heroImage from "../../imgs/hero.webp";
 import { useNavigate } from "react-router-dom";
 
 const Hero: React.FC = () => {
@@ -22,7 +21,7 @@ const Hero: React.FC = () => {
         </button>
       </div>
       <div className="items-center relative">
-        <img src={heroImage} className="w-full h-[450px] object-fill" />
+        <img src="https://blobstorage1114.blob.core.windows.net/images/hero.webp" className="w-full h-[450px] object-fill" />
         <div className="absolute bg-[#0000002a] inset-0"></div>
       </div>
     </section>

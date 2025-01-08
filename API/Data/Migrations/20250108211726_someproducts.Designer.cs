@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20250108211726_someproducts")]
+    partial class someproducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.11");
@@ -142,9 +145,6 @@ namespace API.Data.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("literalDescription")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
 
                     b.ToTable("Products");
@@ -156,12 +156,11 @@ namespace API.Data.Migrations
                             Brand = "Leon's Cleaning",
                             DemoImages = "[\"https://blobstorage1114.blob.core.windows.net/images/product-1-1.webp\",\"https://blobstorage1114.blob.core.windows.net/images/product-1-2.webp\",\"https://blobstorage1114.blob.core.windows.net/images/product-1-3.webp\",\"https://blobstorage1114.blob.core.windows.net/images/product-1-4.webp\",\"https://blobstorage1114.blob.core.windows.net/images/product-1-5.webp\"]",
                             Description = "<div class='product-description'>\r\n  <h2>Biodegradable Dish Soap - Gentle on Hands</h2>\r\n  <p>\r\n    Keep your dishes sparkling clean while caring for the environment with our \r\n    <strong>Biodegradable Dish Soap</strong>. Made from \r\n    <em>natural ingredients</em>, this soap is tough on grease but gentle on your hands.\r\n  </p>\r\n  <ul>\r\n    <li><strong>Eco-Friendly:</strong> Completely biodegradable, reducing environmental impact.</li>\r\n    <li><strong>Natural Formula:</strong> Made with plant-based ingredients for a safer clean.</li>\r\n    <li><strong>Gentle on Skin:</strong> Perfect for sensitive hands with no harsh chemicals.</li>\r\n    <li><strong>Powerful Cleaning:</strong> Effectively cuts through grease and grime.</li>\r\n  </ul>\r\n  <p>\r\n    Choose a product that combines <strong>sustainability</strong> and <strong>effectiveness</strong>. \r\n    Make dishwashing a cleaner, greener experience today!\r\n  </p>\r\n</div>",
-                            Name = "Biodegradable dish.",
+                            Name = "Biodegradable dish soap made from natural ingredients, gentle on hands.",
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product1.jpg",
                             Price = 13.99,
                             QuantityInStock = 13,
-                            Type = "Bath",
-                            literalDescription = "Biodegradable dish soap made from natural ingredients, gentle on hands."
+                            Type = "Bath"
                         },
                         new
                         {
@@ -173,8 +172,7 @@ namespace API.Data.Migrations
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product2.jpg",
                             Price = 29.989999999999998,
                             QuantityInStock = 12,
-                            Type = "Bath",
-                            literalDescription = "Make the switch to a detergent that’s as kind to your skin as it is to the planet. Try our plant-powered solution today and embrace a healthier, more sustainable way to do laundry."
+                            Type = "Bath"
                         },
                         new
                         {
@@ -186,8 +184,7 @@ namespace API.Data.Migrations
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product3.webp",
                             Price = 18.989999999999998,
                             QuantityInStock = 18,
-                            Type = "Cloths",
-                            literalDescription = "Say goodbye to dirt and streaks with our premium Microfiber Cleaning Cloths. Designed to be gentle yet powerful, these cloths are perfect for cleaning all types of surfaces, from glass to wood and everything in between."
+                            Type = "Cloths"
                         },
                         new
                         {
@@ -218,50 +215,46 @@ namespace API.Data.Migrations
                             Id = 6,
                             Brand = "eSayClean",
                             DemoImages = "[\"https://blobstorage1114.blob.core.windows.net/images/product-6-1.webp\",\"https://blobstorage1114.blob.core.windows.net/images/product-6-2.webp\",\"https://blobstorage1114.blob.core.windows.net/images/product-6-3.webp\",\"https://blobstorage1114.blob.core.windows.net/images/product-6-3.webp\"]",
-                            Description = "<div class='product-description'>\r\n  <h1>Whimsical Cat-Themed Ceramic Tea Set</h1>\r\n  <p>\r\n    Add a touch of charm to your tea time with this delightful <strong>cat-themed ceramic tea set</strong>. Featuring playful cat illustrations with vibrant umbrellas, this set is both functional and a beautiful piece of art. Perfect for cat lovers and tea enthusiasts alike!\r\n  </p>\r\n  <p><strong>What's Included:</strong></p>\r\n  <ul>\r\n    <li>1 Teapot with a sturdy handle and whimsical design</li>\r\n    <li>Matching teacups with playful cat and umbrella illustrations</li>\r\n    <li>Beautifully crafted saucers to complete the set</li>\r\n  </ul>\r\n  <p><strong>Key Features:</strong></p>\r\n  <ul>\r\n    <li><strong>High-Quality Ceramic:</strong> Durable, heat-resistant material for long-lasting use.</li>\r\n    <li><strong>Adorable Design:</strong> Colorful and playful cat illustrations with umbrella accents.</li>\r\n    <li><strong>Perfect for Any Occasion:</strong> Ideal for tea parties, casual use, or as a unique gift.</li>\r\n    <li><strong>Easy to Clean:</strong> Smooth surface makes cleaning a breeze.</li>\r\n  </ul>\r\n  <p><strong>Specifications:</strong></p>\r\n  <ul>\r\n    <li>Material: High-quality ceramic</li>\r\n    <li>Teapot Capacity: 1.2 liters</li>\r\n    <li>Number of Cups: 6 matching teacups</li>\r\n    <li>Design: Playful cats with colorful umbrellas</li>\r\n  </ul>\r\n  <p>\r\n    This tea set combines practicality with a whimsical design that will delight anyone who sees it. Whether you're hosting guests or enjoying a quiet tea moment, this set will bring joy and style to your experience.\r\n  </p>\r\n  <p><strong>Customer Reviews:</strong></p>\r\n  <p>\r\n    ★★★★★ (4.8/5) - 'Such a cute tea set! The cat designs are adorable, and the quality is excellent.'\r\n  </p>\r\n</div>",
+                            Description = "<div class='product-description'>\r\n  <h1>Whimsical Cat-Themed Ceramic Tea Set</h1>\r\n  <p>\r\n    Add a touch of charm to your tea time with this delightful <strong>cat-themed ceramic tea set</strong>. Featuring playful cat illustrations with vibrant umbrellas, this set is both functional and a beautiful piece of art. Perfect for cat lovers and tea enthusiasts alike!\r\n  </p>\r\n  <h2>What's Included:</h2>\r\n  <ul>\r\n    <li>1 Teapot with a sturdy handle and whimsical design</li>\r\n    <li>Matching teacups with playful cat and umbrella illustrations</li>\r\n    <li>Beautifully crafted saucers to complete the set</li>\r\n  </ul>\r\n  <h2>Key Features:</h2>\r\n  <ul>\r\n    <li><strong>High-Quality Ceramic:</strong> Durable, heat-resistant material for long-lasting use.</li>\r\n    <li><strong>Adorable Design:</strong> Colorful and playful cat illustrations with umbrella accents.</li>\r\n    <li><strong>Perfect for Any Occasion:</strong> Ideal for tea parties, casual use, or as a unique gift.</li>\r\n    <li><strong>Easy to Clean:</strong> Smooth surface makes cleaning a breeze.</li>\r\n  </ul>\r\n  <h2>Product Specifications:</h2>\r\n  <table>\r\n    <tr>\r\n      <th>Material</th>\r\n      <td>High-quality ceramic</td>\r\n    </tr>\r\n    <tr>\r\n      <th>Teapot Capacity</th>\r\n      <td>1.2 liters</td>\r\n    </tr>\r\n    <tr>\r\n      <th>Number of Cups</th>\r\n      <td>6 matching teacups</td>\r\n    </tr>\r\n    <tr>\r\n      <th>Design</th>\r\n      <td>Playful cats with colorful umbrellas</td>\r\n    </tr>\r\n  </table>\r\n  <h2>Why You'll Love It:</h2>\r\n  <p>\r\n    This tea set combines practicality with a whimsical design that will delight anyone who sees it. Whether you're hosting guests or enjoying a quiet tea moment, this set will bring joy and style to your experience.\r\n  </p>\r\n  <h2>Customer Reviews:</h2>\r\n  <p>\r\n    ★★★★★ (4.8/5) - 'Such a cute tea set! The cat designs are adorable, and the quality is excellent.'\r\n  </p>\r\n</div>",
                             Name = "This tea set combines practicality with a whimsical design that will delight anyone who sees it. Whether you're hosting guests or enjoying a quiet tea moment, this set will bring joy and style to your experience.",
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product6.webp",
                             Price = 30.989999999999998,
                             QuantityInStock = 12,
-                            Type = "Cleaner",
-                            literalDescription = "Combining effective antibacterial action with the nourishing benefits of aloe vera, this hand sanitizer is a must-have for maintaining hygiene without compromising on skin care. Ideal for everyday use and suitable for all skin types."
+                            Type = "Cleaner"
                         },
                         new
                         {
                             Id = 7,
                             Brand = "eSayClean",
                             DemoImages = "[\"https://blobstorage1114.blob.core.windows.net/images/product-7-1.webp\",\"https://blobstorage1114.blob.core.windows.net/images/product-7-2.webp\",\"https://blobstorage1114.blob.core.windows.net/images/product-7-3.webp\",\"https://blobstorage1114.blob.core.windows.net/images/product-7-4.webp\",\"https://blobstorage1114.blob.core.windows.net/images/product-7-5.webp\"]",
-                            Description = "<div class='product-description'>\r\n  <h1>Antibacterial Hand Sanitizer with Moisturizing Aloe Vera Gel</h1>\r\n  <p>\r\n    Keep your hands clean and germ-free with our <strong>antibacterial hand sanitizer</strong>. Infused with <em>moisturizing aloe vera gel</em>, it provides effective protection while keeping your skin soft and hydrated.\r\n  </p>\r\n  <p><strong>Key Features:</strong></p>\r\n  <ul>\r\n    <li><strong>Powerful Germ Protection:</strong> Eliminates 99.9% of bacteria and viruses.</li>\r\n    <li><strong>Moisturizing Formula:</strong> Enriched with aloe vera to prevent dryness and irritation.</li>\r\n    <li><strong>Quick Absorption:</strong> Non-sticky, fast-drying formula for hassle-free use.</li>\r\n    <li><strong>Portable and Convenient:</strong> Ideal for use at home, work, or on the go.</li>\r\n  </ul>\r\n  <p>\r\n    This hand sanitizer combines superior germ-fighting power with the soothing benefits of aloe vera, making it perfect for daily use. It's an essential addition to your hygiene routine, ensuring cleanliness without compromising on skin care.\r\n  </p>\r\n  <p><strong>Customer Reviews:</strong></p>\r\n  <p>\r\n    ★★★★☆ (4.5/5) - 'Keeps my hands feeling fresh and moisturized. Love the aloe vera scent!'\r\n  </p>\r\n</div>",
-                            Name = "Antibacterial hand sanitizer",
+                            Description = "<div class='product-description'>\r\n  <h1>Antibacterial Hand Sanitizer with Moisturizing Aloe Vera Gel</h1>\r\n  <p>\r\n    Stay protected and keep your hands germ-free with our <strong>antibacterial hand sanitizer</strong>. Formulated with <em>moisturizing aloe vera gel</em>, it effectively kills 99.9% of germs while ensuring your hands remain soft and hydrated.\r\n  </p>\r\n  <h2>Key Features:</h2>\r\n  <ul>\r\n    <li><strong>Powerful Germ Protection:</strong> Eliminates 99.9% of bacteria and viruses.</li>\r\n    <li><strong>Moisturizing Formula:</strong> Enriched with aloe vera to prevent dryness and irritation.</li>\r\n    <li><strong>Quick Absorption:</strong> Non-sticky, fast-drying formula for hassle-free use.</li>\r\n    <li><strong>Portable and Convenient:</strong> Perfect for use at home, work, or on the go.</li>\r\n  </ul>\r\n  <h2>Why Choose This Product?</h2>\r\n  <p>\r\n    Combining effective antibacterial action with the nourishing benefits of aloe vera, this hand sanitizer is a must-have for maintaining hygiene without compromising on skin care. Ideal for everyday use and suitable for all skin types.\r\n  </p>\r\n  <h2>Specifications:</h2>\r\n  <table>\r\n    <tr>\r\n      <th>Volume</th>\r\n      <td>250ml</td>\r\n    </tr>\r\n    <tr>\r\n      <th>Fragrance</th>\r\n      <td>Fresh Aloe Vera</td>\r\n    </tr>\r\n    <tr>\r\n      <th>Usage</th>\r\n      <td>Apply a small amount and rub hands together until dry.</td>\r\n    </tr>\r\n  </table>\r\n  <h2>Customer Reviews:</h2>\r\n  <p>\r\n    ★★★★☆ (4.5/5) - 'Leaves my hands feeling clean and soft. Love the aloe vera touch!'\r\n  </p>\r\n</div>",
+                            Name = "Antibacterial hand sanitizer with moisturizing aloe vera gel.",
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product7.webp",
                             Price = 41.0,
                             QuantityInStock = 21,
-                            Type = "Cleaner",
-                            literalDescription = "This hand sanitizer combines superior germ-fighting power with the soothing benefits of aloe vera, making it perfect for daily use. It's an essential addition to your hygiene routine, ensuring cleanliness without compromising on skin care."
+                            Type = "Cleaner"
                         },
                         new
                         {
                             Id = 8,
                             Brand = "eSayClean",
-                            Description = "<div class='product-description'>\r\n  <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>\r\n  <p>\r\n    Discover a powerful and eco-friendly solution for your laundry needs with our <strong>oxygen bleach alternative</strong>. This versatile product is designed to brighten whites, clean tough stains, and maintain the vibrancy of your colored fabrics, all while being gentle on the environment.\r\n  </p>\r\n  <p><strong>Key Features:</strong></p>\r\n  <ul>\r\n    <li><strong>Safe for Colors:</strong> Protects the vibrancy of colored fabrics while effectively removing stains.</li>\r\n    <li><strong>Environmentally Friendly:</strong> Biodegradable formula that is safe for the planet.</li>\r\n    <li><strong>Versatile Use:</strong> Ideal for laundry, cleaning surfaces, and more.</li>\r\n    <li><strong>Non-Toxic:</strong> Free from harsh chemicals and chlorine.</li>\r\n  </ul>\r\n  <p>\r\n    This oxygen bleach alternative is perfect for those who want a cleaner, greener home. It offers powerful cleaning without the use of harsh chemicals, making it a safe choice for your family and the environment.\r\n  </p>\r\n  <p><strong>Customer Reviews:</strong></p>\r\n  <p>\r\n    ★★★★★ (4.7/5) - 'Works wonderfully on my laundry and is safe for all my colored clothes. Highly recommend!'\r\n  </p>\r\n</div>",
+                            Description = "Oxygen bleach alternative, safe for colors and the environment.",
                             Name = "Green eSayClean Woolen bleach",
-                            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product8.webp",
+                            PictureUrl = "imgs/products/product8.jpg",
                             Price = 23.0,
                             QuantityInStock = 32,
-                            Type = "Cleaner",
-                            literalDescription = "Oxygen bleach alternative, safe for colors and the environment."
+                            Type = "Cleaner"
                         },
                         new
                         {
                             Id = 9,
                             Brand = "eSayClean",
-                            Description = "<div class='product-description'>\r\n  <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>\r\n  <p>\r\n    Discover a powerful and eco-friendly solution for your laundry needs with our <strong>oxygen bleach alternative</strong>. This versatile product is designed to brighten whites, clean tough stains, and maintain the vibrancy of your colored fabrics, all while being gentle on the environment.\r\n  </p>\r\n  <p><strong>Key Features:</strong></p>\r\n  <ul>\r\n    <li><strong>Safe for Colors:</strong> Protects the vibrancy of colored fabrics while effectively removing stains.</li>\r\n    <li><strong>Environmentally Friendly:</strong> Biodegradable formula that is safe for the planet.</li>\r\n    <li><strong>Versatile Use:</strong> Ideal for laundry, cleaning surfaces, and more.</li>\r\n    <li><strong>Non-Toxic:</strong> Free from harsh chemicals and chlorine.</li>\r\n  </ul>\r\n  <p>\r\n    This oxygen bleach alternative is perfect for those who want a cleaner, greener home. It offers powerful cleaning without the use of harsh chemicals, making it a safe choice for your family and the environment.\r\n  </p>\r\n  <p><strong>Customer Reviews:</strong></p>\r\n  <p>\r\n    ★★★★★ (4.7/5) - 'Works wonderfully on my laundry and is safe for all my colored clothes. Highly recommend!'\r\n  </p>\r\n</div>",
+                            Description = "Citrus degreaser cuts through tough grease without harsh fumes.",
                             Name = "Citrus degreaser",
-                            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product9.webp",
+                            PictureUrl = "imgs/products/product9.jpg",
                             Price = 13.0,
                             QuantityInStock = 10,
-                            Type = "Cloths",
-                            literalDescription = "Citrus degreaser cuts through tough grease without harsh fumes."
+                            Type = "Cloths"
                         },
                         new
                         {
@@ -273,80 +266,73 @@ namespace API.Data.Migrations
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product10.webp",
                             Price = 19.989999999999998,
                             QuantityInStock = 10,
-                            Type = "Cloths",
-                            literalDescription = "Discover a powerful and eco-friendly solution for your laundry needs with our <strong>oxygen bleach alternative</strong>. This versatile product is designed to brighten whites, clean tough stains, and maintain the vibrancy of your colored fabrics, all while being gentle on the environment."
+                            Type = "Cloths"
                         },
                         new
                         {
                             Id = 11,
                             Brand = "eSayClean",
-                            Description = "<div class='product-description'>\r\n  <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>\r\n  <p>\r\n    Discover a powerful and eco-friendly solution for your laundry needs with our <strong>oxygen bleach alternative</strong>. This versatile product is designed to brighten whites, clean tough stains, and maintain the vibrancy of your colored fabrics, all while being gentle on the environment.\r\n  </p>\r\n  <p><strong>Key Features:</strong></p>\r\n  <ul>\r\n    <li><strong>Safe for Colors:</strong> Protects the vibrancy of colored fabrics while effectively removing stains.</li>\r\n    <li><strong>Environmentally Friendly:</strong> Biodegradable formula that is safe for the planet.</li>\r\n    <li><strong>Versatile Use:</strong> Ideal for laundry, cleaning surfaces, and more.</li>\r\n    <li><strong>Non-Toxic:</strong> Free from harsh chemicals and chlorine.</li>\r\n  </ul>\r\n  <p>\r\n    This oxygen bleach alternative is perfect for those who want a cleaner, greener home. It offers powerful cleaning without the use of harsh chemicals, making it a safe choice for your family and the environment.\r\n  </p>\r\n  <p><strong>Customer Reviews:</strong></p>\r\n  <p>\r\n    ★★★★★ (4.7/5) - 'Works wonderfully on my laundry and is safe for all my colored clothes. Highly recommend!'\r\n  </p>\r\n</div>",
+                            Description = "Carpet shampooer with stain remover for deep cleaning carpets.",
                             Name = "Green Code Cloths",
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product11.webp",
                             Price = 15.99,
                             QuantityInStock = 100,
-                            Type = "Cloths",
-                            literalDescription = "Carpet shampooer with stain remover for deep cleaning carpets."
+                            Type = "Cloths"
                         },
                         new
                         {
                             Id = 12,
                             Brand = "eSayClean",
-                            Description = "<div class='product-description'>\r\n  <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>\r\n  <p>\r\n    Discover a powerful and eco-friendly solution for your laundry needs with our <strong>oxygen bleach alternative</strong>. This versatile product is designed to brighten whites, clean tough stains, and maintain the vibrancy of your colored fabrics, all while being gentle on the environment.\r\n  </p>\r\n  <p><strong>Key Features:</strong></p>\r\n  <ul>\r\n    <li><strong>Safe for Colors:</strong> Protects the vibrancy of colored fabrics while effectively removing stains.</li>\r\n    <li><strong>Environmentally Friendly:</strong> Biodegradable formula that is safe for the planet.</li>\r\n    <li><strong>Versatile Use:</strong> Ideal for laundry, cleaning surfaces, and more.</li>\r\n    <li><strong>Non-Toxic:</strong> Free from harsh chemicals and chlorine.</li>\r\n  </ul>\r\n  <p>\r\n    This oxygen bleach alternative is perfect for those who want a cleaner, greener home. It offers powerful cleaning without the use of harsh chemicals, making it a safe choice for your family and the environment.\r\n  </p>\r\n  <p><strong>Customer Reviews:</strong></p>\r\n  <p>\r\n    ★★★★★ (4.7/5) - 'Works wonderfully on my laundry and is safe for all my colored clothes. Highly recommend!'\r\n  </p>\r\n</div>",
+                            Description = "Enzyme-based drain cleaner safely breaks down organic matter.",
                             Name = "Enzyme-based drain cleaner",
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product12.webp",
                             Price = 19.989999999999998,
                             QuantityInStock = 12,
-                            Type = "Cloths",
-                            literalDescription = "Enzyme-based drain cleaner safely breaks down organic matter."
+                            Type = "Cloths"
                         },
                         new
                         {
                             Id = 13,
                             Brand = "eSayClean",
-                            Description = "<div class='product-description'>\r\n  <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>\r\n  <p>\r\n    Discover a powerful and eco-friendly solution for your laundry needs with our <strong>oxygen bleach alternative</strong>. This versatile product is designed to brighten whites, clean tough stains, and maintain the vibrancy of your colored fabrics, all while being gentle on the environment.\r\n  </p>\r\n  <p><strong>Key Features:</strong></p>\r\n  <ul>\r\n    <li><strong>Safe for Colors:</strong> Protects the vibrancy of colored fabrics while effectively removing stains.</li>\r\n    <li><strong>Environmentally Friendly:</strong> Biodegradable formula that is safe for the planet.</li>\r\n    <li><strong>Versatile Use:</strong> Ideal for laundry, cleaning surfaces, and more.</li>\r\n    <li><strong>Non-Toxic:</strong> Free from harsh chemicals and chlorine.</li>\r\n  </ul>\r\n  <p>\r\n    This oxygen bleach alternative is perfect for those who want a cleaner, greener home. It offers powerful cleaning without the use of harsh chemicals, making it a safe choice for your family and the environment.\r\n  </p>\r\n  <p><strong>Customer Reviews:</strong></p>\r\n  <p>\r\n    ★★★★★ (4.7/5) - 'Works wonderfully on my laundry and is safe for all my colored clothes. Highly recommend!'\r\n  </p>\r\n</div>",
+                            Description = "Mineral-based toilet bowl cleaner, effective and environmentally friendly.",
                             Name = "Mineral-based toilet bowl cleaner",
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product13.webp",
                             Price = 18.989999999999998,
                             QuantityInStock = 100,
-                            Type = "Cleaner",
-                            literalDescription = "Mineral-based toilet bowl cleaner, effective and environmentally friendly."
+                            Type = "Cleaner"
                         },
                         new
                         {
                             Id = 14,
                             Brand = "eSayClean",
-                            Description = "<div class='product-description'>\r\n  <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>\r\n  <p>\r\n    Discover a powerful and eco-friendly solution for your laundry needs with our <strong>oxygen bleach alternative</strong>. This versatile product is designed to brighten whites, clean tough stains, and maintain the vibrancy of your colored fabrics, all while being gentle on the environment.\r\n  </p>\r\n  <p><strong>Key Features:</strong></p>\r\n  <ul>\r\n    <li><strong>Safe for Colors:</strong> Protects the vibrancy of colored fabrics while effectively removing stains.</li>\r\n    <li><strong>Environmentally Friendly:</strong> Biodegradable formula that is safe for the planet.</li>\r\n    <li><strong>Versatile Use:</strong> Ideal for laundry, cleaning surfaces, and more.</li>\r\n    <li><strong>Non-Toxic:</strong> Free from harsh chemicals and chlorine.</li>\r\n  </ul>\r\n  <p>\r\n    This oxygen bleach alternative is perfect for those who want a cleaner, greener home. It offers powerful cleaning without the use of harsh chemicals, making it a safe choice for your family and the environment.\r\n  </p>\r\n  <p><strong>Customer Reviews:</strong></p>\r\n  <p>\r\n    ★★★★★ (4.7/5) - 'Works wonderfully on my laundry and is safe for all my colored clothes. Highly recommend!'\r\n  </p>\r\n</div>",
+                            Description = "Odor eliminator uses activated charcoal to absorb bad smells.",
                             Name = "eSayClean Red Cloths",
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product14.webp",
                             Price = 29.989999999999998,
                             QuantityInStock = 32,
-                            Type = "Cloths",
-                            literalDescription = "Odor eliminator uses activated charcoal to absorb bad smells."
+                            Type = "Cloths"
                         },
                         new
                         {
                             Id = 15,
                             Brand = "eSayClean",
-                            Description = "<div class='product-description'>\r\n  <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>\r\n  <p>\r\n    Discover a powerful and eco-friendly solution for your laundry needs with our <strong>oxygen bleach alternative</strong>. This versatile product is designed to brighten whites, clean tough stains, and maintain the vibrancy of your colored fabrics, all while being gentle on the environment.\r\n  </p>\r\n  <p><strong>Key Features:</strong></p>\r\n  <ul>\r\n    <li><strong>Safe for Colors:</strong> Protects the vibrancy of colored fabrics while effectively removing stains.</li>\r\n    <li><strong>Environmentally Friendly:</strong> Biodegradable formula that is safe for the planet.</li>\r\n    <li><strong>Versatile Use:</strong> Ideal for laundry, cleaning surfaces, and more.</li>\r\n    <li><strong>Non-Toxic:</strong> Free from harsh chemicals and chlorine.</li>\r\n  </ul>\r\n  <p>\r\n    This oxygen bleach alternative is perfect for those who want a cleaner, greener home. It offers powerful cleaning without the use of harsh chemicals, making it a safe choice for your family and the environment.\r\n  </p>\r\n  <p><strong>Customer Reviews:</strong></p>\r\n  <p>\r\n    ★★★★★ (4.7/5) - 'Works wonderfully on my laundry and is safe for all my colored clothes. Highly recommend!'\r\n  </p>\r\n</div>",
+                            Description = "Vinegar-free fabric softener, keeps clothes soft and fresh.",
                             Name = "Vinegar-free fabric softener",
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product15.webp",
                             Price = 34.0,
                             QuantityInStock = 12,
-                            Type = "Cleaner",
-                            literalDescription = "Vinegar-free fabric softener, keeps clothes soft and fresh."
+                            Type = "Cleaner"
                         },
                         new
                         {
                             Id = 16,
                             Brand = "eSayClean",
-                            Description = "<div class='product-description'>\r\n  <h1>Oxygen Bleach Alternative - Safe for Colors and the Environment</h1>\r\n  <p>\r\n    Discover a powerful and eco-friendly solution for your laundry needs with our <strong>oxygen bleach alternative</strong>. This versatile product is designed to brighten whites, clean tough stains, and maintain the vibrancy of your colored fabrics, all while being gentle on the environment.\r\n  </p>\r\n  <p><strong>Key Features:</strong></p>\r\n  <ul>\r\n    <li><strong>Safe for Colors:</strong> Protects the vibrancy of colored fabrics while effectively removing stains.</li>\r\n    <li><strong>Environmentally Friendly:</strong> Biodegradable formula that is safe for the planet.</li>\r\n    <li><strong>Versatile Use:</strong> Ideal for laundry, cleaning surfaces, and more.</li>\r\n    <li><strong>Non-Toxic:</strong> Free from harsh chemicals and chlorine.</li>\r\n  </ul>\r\n  <p>\r\n    This oxygen bleach alternative is perfect for those who want a cleaner, greener home. It offers powerful cleaning without the use of harsh chemicals, making it a safe choice for your family and the environment.\r\n  </p>\r\n  <p><strong>Customer Reviews:</strong></p>\r\n  <p>\r\n    ★★★★★ (4.7/5) - 'Works wonderfully on my laundry and is safe for all my colored clothes. Highly recommend!'\r\n  </p>\r\n</div>",
+                            Description = "Eco-friendly car wash solution, biodegradable and non-toxic.",
                             Name = "Car wash solution",
                             PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product16.webp",
                             Price = 43.0,
                             QuantityInStock = 100,
-                            Type = "Bath",
-                            literalDescription = "Eco-friendly car wash solution, biodegradable and non-toxic."
+                            Type = "Bath"
                         });
                 });
 

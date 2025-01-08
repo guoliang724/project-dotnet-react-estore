@@ -10,7 +10,6 @@ import {
 import { Avatar, Badge, Dropdown, message } from "antd";
 import type { MenuProps } from 'antd';
 
-import logo from "../../imgs/logo-page.png";
 import { useAppDispatch, useAppSelector } from "../../store/slice";
 import {
   setBasketLocation,
@@ -126,7 +125,7 @@ export default function Header() {
     <div className="min-h-20 flex flex-row justify-between mx-32 py-5 tracking-wider">
       <div className="flex flex-row justify-evenly items-center gap-5">
         <div className="w-30">
-          <img src={logo} className="w-full h-8" />
+          <img src="https://blobstorage1114.blob.core.windows.net/images/logo-page.png" className="w-full h-8" />
         </div>
         {LeftLinkComponent}
       </div>

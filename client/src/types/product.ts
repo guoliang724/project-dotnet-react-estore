@@ -9,6 +9,7 @@ export interface IProduct {
   type: string;
   quantityInStock: number;
   demoImages: string[];
+  literalDescription:string
 }
 
 export enum EffectType {

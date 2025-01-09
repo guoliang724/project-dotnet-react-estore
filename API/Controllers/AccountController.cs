@@ -28,19 +28,20 @@ namespace API.Controllers
         {
             var user = await _userManager.FindByNameAsync(loginDto.Username);
             if (user == null || !await _userManager.CheckPasswordAsync(user, loginDto.Password))
-            return Unauthorized();
-            
+                return Unauthorized();
+
             var userBasket = await RetrieveBasket(loginDto.Username);
             var nonBasket = await RetrieveBasket(Request.Cookies["buyerId"]);
 
-            if(nonBasket != null) {
-                if(userBasket !=null) _context.Baskets.Remove(userBasket);
+            if (nonBasket != null)
+            {
+                if (userBasket != null) _context.Baskets.Remove(userBasket);
                 nonBasket.BuyerId = user.UserName;
                 Response.Cookies.Delete("buyerId");
                 await _context.SaveChangesAsync();
             }
-            
-            var basket = nonBasket != null ?nonBasket.MapBasketToDto(): userBasket != null ? userBasket.MapBasketToDto():null;
+
+            var basket = nonBasket != null ? nonBasket.MapBasketToDto() : userBasket != null ? userBasket.MapBasketToDto() : null;
 
             return new UserDto
             {
@@ -64,34 +65,34 @@ namespace API.Controllers
             var result = await _userManager.CreateAsync(user, registerDto.Password);
 
             if (!result.Succeeded)
-        {
-            foreach (var error in result.Errors)
             {
-                ModelState.AddModelError(error.Code, error.Description);
-            }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(error.Code, error.Description);
+                }
 
-            return ValidationProblem();
-        }
+                return ValidationProblem();
+            }
 
             await _userManager.AddToRoleAsync(user, "Member");
 
-             var userBasket = await RetrieveBasket(registerDto.Username);
+            var userBasket = await RetrieveBasket(registerDto.Username);
             var nonBasket = await RetrieveBasket(Request.Cookies["buyerId"]);
 
-            if(nonBasket != null) {
-                if(userBasket !=null) _context.Baskets.Remove(userBasket);
+            if (nonBasket != null)
+            {
+                if (userBasket != null) _context.Baskets.Remove(userBasket);
                 nonBasket.BuyerId = user.UserName;
                 Response.Cookies.Delete("buyerId");
                 await _context.SaveChangesAsync();
             }
-            
-            var basket = nonBasket != null ?nonBasket:userBasket;
 
+            var basket = nonBasket != null ? nonBasket.MapBasketToDto() : userBasket != null ? userBasket.MapBasketToDto() : null;
             return new UserDto
             {
                 Token = await _tokenService.GenerateToken(user),
                 Email = user.Email,
-                basketDto = basket.MapBasketToDto(),
+                basketDto = basket,
             };
 
         }
@@ -112,13 +113,14 @@ namespace API.Controllers
 
         [Authorize]
         [HttpGet("savedAddress")]
-        public async Task<ActionResult<UserAddress>> GetSavedAddress(){
-            return await _userManager.Users.Where(x=>x.UserName == User.Identity.Name)
-            .Select(user=>user.Address).FirstOrDefaultAsync();
+        public async Task<ActionResult<UserAddress>> GetSavedAddress()
+        {
+            return await _userManager.Users.Where(x => x.UserName == User.Identity.Name)
+            .Select(user => user.Address).FirstOrDefaultAsync();
         }
 
 
-          private async Task<Basket> RetrieveBasket(string buyerId)
+        private async Task<Basket> RetrieveBasket(string buyerId)
         {
             if (string.IsNullOrEmpty(buyerId))
             {

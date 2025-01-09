@@ -6,7 +6,7 @@ import {
   http500,
   httpvalidation,
 } from "../../api/error";
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Button, Card } from "antd";
 
 function ContactPage() {

@@ -14,7 +14,7 @@ function SortedBar() {
     (state) => state.products
   );
   const dispatch = useAppDispatch();
-  const { totalCount, totalPages, currentPage, pageSize } = metaData;
+  const { totalCount } = metaData;
 
   const totalNumber = unSortedProducts.length;
 
@@ -101,7 +101,7 @@ function SortedBar() {
           <DownOutlined className="text-[12px]" />
         </div>
       </Dropdown>
-      <SearchBar onClose={() => {}} />
+      <SearchBar  />
       <div className="flex flex-row justify-between items-center gap-4">
         <span>Filterd: {totalCount}</span>
         <span>Total: {totalNumber} </span>

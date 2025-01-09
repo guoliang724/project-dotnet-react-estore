@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 import { IProductCard, EffectType } from "../../types/product";
 
 export default function ProductCard({
-  product: { id, pictureUrl, type, name, description, price },
+  product: { id, pictureUrl, type, name, price },
   effectType,
   delay,
 }: IProductCard) {

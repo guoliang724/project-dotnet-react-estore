@@ -1,6 +1,7 @@
-import { Button, Table, Tag, Space, Descriptions, Badge, Image } from "antd";
+import { Button, Table, Tag, Descriptions, Image } from "antd";
 import type { TableProps } from "antd";
 import type { DescriptionsProps } from "antd";
+
 import { useAppSelector } from "../../../store/slice";
 
 interface IProps {
@@ -19,7 +20,7 @@ interface DataType {
 }
 
 function ReviewForm({ onNext, onPrevious }: IProps) {
-  const { basket, status } = useAppSelector((state) => state.basket);
+  const { basket } = useAppSelector((state) => state.basket);
 
   const columns: TableProps<DataType>["columns"] = [
     {

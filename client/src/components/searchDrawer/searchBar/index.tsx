@@ -8,10 +8,8 @@ import {
   fetchProductsAsync,
 } from "../../../store/slice/productSlice";
 
-interface IProps {
-  onClose: () => void;
-}
-function SearchBar({ onClose }: IProps) {
+
+function SearchBar() {
   const { productParams } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
 

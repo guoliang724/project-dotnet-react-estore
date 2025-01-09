@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import {sentence,article} from "txtgen"
+import {article} from "txtgen"
 
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -39,7 +39,6 @@ const ProductDetail = () => {
     price,
     pictureUrl,
     quantityInStock,
-    type,
     id,
     demoImages = [],
   } = product;

@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Descriptions, Badge, Result } from "antd";
 import type { DescriptionsProps } from "antd";
 import { useNavigate } from "react-router-dom";

@@ -11,7 +11,7 @@ function Error() {
     return <div className="w-4/5 mx-auto my-16">{error.data.title}</div>;
   }
 
-  return <div className="w-4/5 mx-auto my-16">Error</div>;
+  return <div className="w-4/5 mx-auto my-16">This product has not been ready!</div>;
 }
 
 export default Error;

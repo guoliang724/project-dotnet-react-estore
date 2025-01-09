@@ -1,4 +1,3 @@
-import React from "react";
 import { Empty, Typography,Button} from "antd";
 import { useNavigate } from "react-router-dom";
 

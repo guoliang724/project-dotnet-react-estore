@@ -33,9 +33,7 @@ export default function ShippingForm({
     padding: 24,
   };
 
-  const handleCheck: CheckboxProps["onChange"] = (e) => {
-    saveAddress(e.target.value);
-  };
+ 
   const handleSubmit = () => {
     onNext();
   };

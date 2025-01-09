@@ -1,5 +1,5 @@
 import { Skeleton } from "antd";
-import React from "react";
+
 
 function ProductCardSkeleton() {
   return (

@@ -1,31 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { getOrders } from "../../api/orders";
-import { Order } from "../../types/order";
-import useRequireAuth from "../../layout/auth";
+import { useEffect, useState } from "react";
 import { Empty, Typography, Button, Collapse, Tag,Flex, Descriptions, List } from "antd";
 import { useNavigate } from "react-router-dom";
 import type { CollapseProps } from "antd";
 import type { DescriptionsProps } from 'antd';
+
+import { getOrders } from "../../api/orders";
+import { Order } from "../../types/order";
+import useRequireAuth from "../../layout/auth";
 
 
 function OrderPage() {
   const [orders, setOrders] = useState<Order[] | null>(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const colors = [
-    "magenta",
-    "red",
-    "volcano",
-    " orange",
-    "gold",
-    "lime",
-    "green",
-    "cyan",
-    "blue",
-    "geekblue",
-    "purple",
-  ];
-
+ 
   const { isAuth } = useRequireAuth();
 
   const onChange = (key: string | string[]) => {
@@ -136,7 +124,7 @@ const ShippingAddressInfo = ()=> <div className="flex flex-row justify-center it
     ></Collapse>
   );
  
-  const SkeletonCom = () => <div></div>;
+
   const isLoadingSkeleton = loading ? <CollapseCom /> : <CollapseCom />;
   const isAuthCom = isAuth && isLoadingSkeleton;
 

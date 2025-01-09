@@ -1,7 +1,6 @@
 import { Skeleton } from "antd";
 
 function LoadingComponent() {
-  const SkeletonComponet = [];
   return (
     <div className="w-4/5 mx-auto my-16">
       <figure className="flex flex-col">

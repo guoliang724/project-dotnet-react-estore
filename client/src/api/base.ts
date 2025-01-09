@@ -1,6 +1,5 @@
 import axios, {
   AxiosError,
-  AxiosRequestConfig,
   AxiosResponse,
   HttpStatusCode,
 } from "axios";
@@ -9,7 +8,7 @@ import { PagniatedRepsonse } from "../types/pagination";
 import { store } from "../store/slice";
 
 const http = axios.create({
-  baseURL: "http://localhost:5107/",
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 1000,
   withCredentials: true,
 });
@@ -26,8 +25,6 @@ http.interceptors.request.use((config) => {
 
 http.interceptors.response.use(
   async (response: AxiosResponse) => {
-    // await sleep(1000);
-
     const pagination = response.headers["pagination"];
     if (pagination) {
       response.data = new PagniatedRepsonse(

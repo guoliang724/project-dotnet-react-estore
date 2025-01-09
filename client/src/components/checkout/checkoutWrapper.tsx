@@ -1,14 +1,16 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import { Button,Empty,Steps,Typography } from "antd";
+import { Button,Empty,Typography } from "antd";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import CheckoutPage from ".";
-import { useEffect, useState } from "react";
+
 import { useAppDispatch } from "../../store/slice";
 import { createPaymentIntent } from "../../api/payment";
 import { setBasket } from "../../store/slice/basketSlice";
 import useRequireAuth from "../../layout/auth";
-import { useNavigate } from "react-router-dom";
+
 
 
 const stripePromise = loadStripe(
@@ -17,26 +19,24 @@ const stripePromise = loadStripe(
 
 function CheckoutWrapper() {
   const dispatch = useAppDispatch();
-  const [loading, setLoading] = useState(true);
   const {isAuth}= useRequireAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     const createIntent = async () => {
-      setLoading(true);
+
       try {
         const { data: basket } = await createPaymentIntent();
         dispatch(setBasket(basket));
       } catch (err) {
         console.log("createIntent", err);
       } finally {
-        setLoading(false);
       }
     };
     if(isAuth) createIntent();
   }, [dispatch,isAuth]);
 
- 
+  
 
   if(!isAuth) {
     

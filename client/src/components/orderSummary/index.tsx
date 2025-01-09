@@ -1,4 +1,3 @@
-import React from 'react'
 import {Button, Card, Divider} from "antd"
 import { useNavigate } from 'react-router-dom'
 import { useAppSelector } from '../../store/slice';

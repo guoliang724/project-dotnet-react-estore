@@ -4,7 +4,6 @@ import {
   LoadingOutlined,
   SmileOutlined,
   SolutionOutlined,
-  UserOutlined,
   DollarOutlined,
 } from "@ant-design/icons";
 import { useState } from "react";
@@ -13,7 +12,6 @@ import ShippingForm from "./shippingForm";
 import ReviewForm from "./reviewForm";
 import PaymentForm from "./paymentForm";
 import DoneForm from "./doneForm";
-import { useNavigate } from "react-router-dom";
 import { PaymentResult } from "../../types/payment";
 
 export interface FieldData {

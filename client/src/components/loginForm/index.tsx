@@ -51,6 +51,7 @@ function LoginForm({ onClose }: IProps) {
 
   const onFinishRegistor = async (values: any) => {
     setLoading(true);
+    setErrors({"username":"","email":"","password":""})
     try {
       const { data: user } = await register(values);
       if (user) {
@@ -85,6 +86,7 @@ function LoginForm({ onClose }: IProps) {
       form.setFieldValue("username", "");
       form.setFieldValue("password", "");
       form.setFieldValue("email", "");
+      
     }
   };
 

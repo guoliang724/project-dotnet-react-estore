@@ -178,7 +178,7 @@ function LoginForm({ onClose }: IProps) {
   );
 
   return (
-    <div className="flex flex-row gap-3 items-center">
+    <div className="flex flex-row gap-3 justify-center items-center">
       {LoginForm}
       <CloseCircleOutlined onClick={()=>{onClose();setErrors({"username":"","email":"","password":""}) }} className="self-start mt-2" />
     </div>

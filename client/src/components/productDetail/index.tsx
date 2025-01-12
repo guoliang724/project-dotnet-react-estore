@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
@@ -113,6 +113,8 @@ const ProductDetail = () => {
     setIsMouseOver(false);
   };
 
+  const changeLorem = useCallback(()=>article(1),[numberSwiper])
+
   return (
     <div className="w-4/5 mx-auto my-10">
       <div className="w-full flex flex-row justify-between relative">
@@ -204,7 +206,7 @@ const ProductDetail = () => {
             />
             <div className="flex flex-col gap-2">
                 <div className="text-base font-bold">About lorem:</div>
-                <div>{article(1)}</div>
+                <div>{changeLorem()}</div>
             </div>
          
           </div>

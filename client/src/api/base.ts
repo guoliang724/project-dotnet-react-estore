@@ -8,7 +8,7 @@ import { PagniatedRepsonse } from "../types/pagination";
 import { store } from "../store/slice";
 
 const http = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL:"http://localhost:5107",
   withCredentials: true,
 });
 

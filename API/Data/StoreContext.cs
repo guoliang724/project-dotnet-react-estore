@@ -604,6 +604,12 @@ namespace API.Data
             Brand = "eSayClean",
             Type = "Cleaner",
             QuantityInStock = 12,
+             DemoImages = new(){
+                        "https://blobstorage1114.blob.core.windows.net/images/product-15-1.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-15-2.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-15-3.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-15-4.webp",
+                      }
           },
           new Product
           {
@@ -635,6 +641,12 @@ namespace API.Data
             Brand = "eSayClean",
             Type = "Bath",
             QuantityInStock = 100,
+             DemoImages = new(){
+                        "https://blobstorage1114.blob.core.windows.net/images/product-16-1.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-16-2.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-16-3.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-16-4.webp",
+                      }
           }
       );
 

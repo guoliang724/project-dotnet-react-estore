@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect,memo } from "react";
 import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
@@ -13,6 +13,10 @@ import { getProductDetail } from "../../api/product";
 import { IProduct } from "../../types/product";
 import { Swiper as SwiperType } from "swiper/types";
 import AddSubButton from "../addsubButton";
+
+
+const RenderLorem = memo(() =>article(1))
+
 
 const ProductDetail = () => {
   const product = useLoaderData() as IProduct;
@@ -113,7 +117,6 @@ const ProductDetail = () => {
     setIsMouseOver(false);
   };
 
-  const changeLorem = useCallback(()=>article(1),[numberSwiper])
 
   return (
     <div className="w-4/5 mx-auto my-10">
@@ -206,9 +209,8 @@ const ProductDetail = () => {
             />
             <div className="flex flex-col gap-2">
                 <div className="text-base font-bold">About lorem:</div>
-                <div>{changeLorem()}</div>
+                <div><RenderLorem /></div>
             </div>
-         
           </div>
         </div>
       </div>

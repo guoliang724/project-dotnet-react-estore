@@ -54,7 +54,7 @@ namespace API.Data
   </p>
 </div>",
             Price = 13.99,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product1.jpg",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-1-0.webp",
             Brand = "Leon's Cleaning",
             Type = "Bath",
             QuantityInStock = 13,
@@ -90,7 +90,7 @@ namespace API.Data
   </p>
 </div>",
             Price = 29.99,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product2.jpg",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-2-0.jpg",
             Brand = "eSayClean",
             Type = "Bath",
             QuantityInStock = 12,
@@ -128,7 +128,7 @@ namespace API.Data
   </p>
 </div>",
             Price = 18.99,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product3.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-3-0.webp",
             Brand = "Timerland",
             Type = "Cloths",
             QuantityInStock = 18,
@@ -165,7 +165,7 @@ namespace API.Data
   </p>
 </div>",
             Price = 14.99,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product4.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-4-0.webp",
             Brand = "eSayClean",
             Type = "Cleaner",
             QuantityInStock = 19,
@@ -203,7 +203,7 @@ namespace API.Data
   </p>
 </div>",
             Price = 15.00,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product5.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-5-0.webp",
             Brand = "eSayClean",
             Type = "Bath",
             QuantityInStock = 14,
@@ -251,7 +251,7 @@ namespace API.Data
   </p>
 </div>",
             Price = 30.99,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product6.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-6-0.webp",
             Brand = "eSayClean",
             Type = "Cleaner",
             QuantityInStock = 12,
@@ -259,7 +259,7 @@ namespace API.Data
                         "https://blobstorage1114.blob.core.windows.net/images/product-6-1.webp",
                         "https://blobstorage1114.blob.core.windows.net/images/product-6-2.webp",
                         "https://blobstorage1114.blob.core.windows.net/images/product-6-3.webp",
-                         "https://blobstorage1114.blob.core.windows.net/images/product-6-3.webp",                     }
+                         "https://blobstorage1114.blob.core.windows.net/images/product-6-4.webp",                     }
           },
           new Product
           {
@@ -287,7 +287,7 @@ namespace API.Data
   </p>
 </div>",
             Price = 41.00,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product7.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-7-0.webp",
             Brand = "eSayClean",
             Type = "Cleaner",
             QuantityInStock = 21,
@@ -325,7 +325,7 @@ namespace API.Data
 </div>",
             literalDescription = "Oxygen bleach alternative, safe for colors and the environment.",
             Price = 23.00,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product8.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-8-0.webp",
             Brand = "eSayClean",
             Type = "Cleaner",
             QuantityInStock = 32,
@@ -369,7 +369,7 @@ namespace API.Data
             DemoImages = new(){
                         "https://blobstorage1114.blob.core.windows.net/images/product-7-1.webp",
                         "https://blobstorage1114.blob.core.windows.net/images/product-7-2.webp",
-                        "https://blobstorage1114.blob.core.windows.net/images/product7.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-7-0.webp",
                         "https://blobstorage1114.blob.core.windows.net/images/product-7-4.webp",
                         "https://blobstorage1114.blob.core.windows.net/images/product-7-5.webp",                }
           },
@@ -412,16 +412,16 @@ namespace API.Data
                 versatile and beautifully designed towels.
               </p>",
             Price = 19.99,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product10.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-10-0.webp",
             Brand = "eSayClean",
             Type = "Cloths",
             QuantityInStock = 10,
             DemoImages = new(){
-                        "https://blobstorage1114.blob.core.windows.net/images/1.webp",
-                        "https://blobstorage1114.blob.core.windows.net/images/2.webp",
-                        "https://blobstorage1114.blob.core.windows.net/images/3.webp",
-                        "https://blobstorage1114.blob.core.windows.net/images/4.webp",
-                        "https://blobstorage1114.blob.core.windows.net/images/5.webp"
+                        "https://blobstorage1114.blob.core.windows.net/images/product-10-1.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-10-2.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-10-3.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-10-4.webp",
+                        "https://blobstorage1114.blob.core.windows.net/images/product-10-5.webp"
                   }
           },
           new Product
@@ -450,7 +450,7 @@ namespace API.Data
 </div>",
             literalDescription = "Carpet shampooer with stain remover for deep cleaning carpets.",
             Price = 15.99,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product11.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-11-0.webp",
             Brand = "eSayClean",
             Type = "Cloths",
             QuantityInStock = 100,
@@ -487,7 +487,7 @@ namespace API.Data
 </div>",
             literalDescription = "Enzyme-based drain cleaner safely breaks down organic matter.",
             Price = 19.99,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product12.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-12-0.webp",
             Brand = "eSayClean",
             Type = "Cloths",
             QuantityInStock = 12,
@@ -526,7 +526,7 @@ namespace API.Data
 </div>",
             literalDescription = "Mineral-based toilet bowl cleaner, effective and environmentally friendly.",
             Price = 18.99,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product13.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-13-0.webp",
             Brand = "eSayClean",
             Type = "Cleaner",
             QuantityInStock = 100,
@@ -563,7 +563,7 @@ namespace API.Data
 </div>",
             literalDescription = "Odor eliminator uses activated charcoal to absorb bad smells.",
             Price = 29.99,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product14.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-14-0.webp",
             Brand = "eSayClean",
             Type = "Cloths",
             QuantityInStock = 32,
@@ -600,7 +600,7 @@ namespace API.Data
 </div>",
             literalDescription = "Vinegar-free fabric softener, keeps clothes soft and fresh.",
             Price = 34.00,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product15.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-15-0.webp",
             Brand = "eSayClean",
             Type = "Cleaner",
             QuantityInStock = 12,
@@ -637,7 +637,7 @@ namespace API.Data
 </div>",
             literalDescription = "Eco-friendly car wash solution, biodegradable and non-toxic.",
             Price = 43.00,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product16.webp",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-16-0.webp",
             Brand = "eSayClean",
             Type = "Bath",
             QuantityInStock = 100,

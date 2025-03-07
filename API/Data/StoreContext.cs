@@ -90,7 +90,7 @@ namespace API.Data
   </p>
 </div>",
             Price = 29.99,
-            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-2-0.jpg",
+            PictureUrl = "https://blobstorage1114.blob.core.windows.net/images/product-2-0.webp",
             Brand = "eSayClean",
             Type = "Bath",
             QuantityInStock = 12,
